@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const PrePayCondition = styled.span`
   width: 100%;
@@ -23,7 +23,10 @@ export const PayBtn = styled.button<{ $allChecked: boolean }>`
   font-size: ${({ theme }) => theme.fontSize.xxs};
   box-shadow: ${({ theme }) => theme.box.shadow};
   color: white;
-  background-color: ${props => (props.$allChecked ? props.theme.color.mainPink : props.theme.color.middleGray)};
+  background-color: ${props =>
+    props.$allChecked
+      ? props.theme.color.mainPink
+      : props.theme.color.middleGray};
 
   transition: 0.2s;
 `;

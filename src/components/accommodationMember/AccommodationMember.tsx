@@ -1,11 +1,17 @@
-import * as style from "./accommodationMember.styles";
-import { MemberProps } from "./accommodationMember.types";
-import { useSetRecoilState } from "recoil";
-import { accommodationMemberState } from "../../recoil/accommodationMember";
-import { useEffect, useState } from "react";
+import * as style from './accommodationMember.styles';
+import { MemberProps } from './accommodationMember.types';
+import { useSetRecoilState } from 'recoil';
+import { accommodationMemberState } from '../../recoil/accommodationMember';
+import { useEffect, useState } from 'react';
 
-const AccommodationMember = ({ isMemberShow, setIsMemberShow, memberNumber }: MemberProps) => {
-  const setAccommodationMemberState = useSetRecoilState(accommodationMemberState);
+const AccommodationMember = ({
+  isMemberShow,
+  setIsMemberShow,
+  memberNumber,
+}: MemberProps) => {
+  const setAccommodationMemberState = useSetRecoilState(
+    accommodationMemberState,
+  );
   const [memberCount, setMemberCount] = useState(memberNumber);
   const [minusDisabled, setMinusDisabled] = useState(false);
   const [plusDisabled, setPlusDisabled] = useState(false);
@@ -19,7 +25,9 @@ const AccommodationMember = ({ isMemberShow, setIsMemberShow, memberNumber }: Me
   }, [isMemberShow]);
 
   const handleSetMember = (type: string) => {
-    type === "plus" ? setMemberCount(prev => prev + 1) : setMemberCount(prev => prev - 1);
+    type === 'plus'
+      ? setMemberCount(prev => prev + 1)
+      : setMemberCount(prev => prev - 1);
   };
 
   useEffect(() => {
@@ -48,24 +56,36 @@ const AccommodationMember = ({ isMemberShow, setIsMemberShow, memberNumber }: Me
       <style.MemberContainer>
         <style.MemberContentBox>
           <style.MemberContentInfoBox>
-            <span>정확한 숙소검색 결과를 확인하려면 인원수를 선택해주세요.</span>
-            <style.MemberContentInfoCloseIcon onClick={() => setIsMemberShow(prev => !prev)} />
+            <span>
+              정확한 숙소검색 결과를 확인하려면 인원수를 선택해주세요.
+            </span>
+            <style.MemberContentInfoCloseIcon
+              onClick={() => setIsMemberShow(prev => !prev)}
+            />
           </style.MemberContentInfoBox>
           <style.MemberContentPeopleContainer>
             <span>인원</span>
             <style.MemberContentPeoplePick>
-              <button disabled={minusDisabled} onClick={() => handleSetMember("minus")}>
+              <button
+                disabled={minusDisabled}
+                onClick={() => handleSetMember('minus')}
+              >
                 <span>-</span>
               </button>
               {memberCount}
-              <button disabled={plusDisabled} onClick={() => handleSetMember("plus")}>
+              <button
+                disabled={plusDisabled}
+                onClick={() => handleSetMember('plus')}
+              >
                 <span>+</span>
               </button>
             </style.MemberContentPeoplePick>
           </style.MemberContentPeopleContainer>
         </style.MemberContentBox>
         <style.MemberNav>
-          <style.MemberButton onClick={handleMemberCount}>{`인원 ${memberCount} · 적용하기`}</style.MemberButton>
+          <style.MemberButton
+            onClick={handleMemberCount}
+          >{`인원 ${memberCount} · 적용하기`}</style.MemberButton>
         </style.MemberNav>
       </style.MemberContainer>
     </style.MemberLayout>

@@ -1,6 +1,6 @@
-import { atom } from "recoil";
-import { AccommodationMemberDefault } from "../feature/accommodation/accommodation.types";
-import { recoilPersist } from "recoil-persist";
+import { atom } from 'recoil';
+import { AccommodationMemberDefault } from '../feature/accommodation/accommodation.types';
+import { recoilPersist } from 'recoil-persist';
 
 const { persistAtom } = recoilPersist();
 
@@ -9,7 +9,7 @@ const defaultValue: AccommodationMemberDefault = {
 };
 
 export const accommodationMemberState = atom({
-  key: "accommodationMember",
+  key: 'accommodationMember',
   default: defaultValue,
   effects_UNSTABLE: [persistAtom],
 });

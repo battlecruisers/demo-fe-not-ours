@@ -1,9 +1,11 @@
-import * as style from "../../feature/accommodation/styles/accommodationInfo";
-import { useSetRecoilState } from "recoil";
-import { accommodationRegionState } from "../../recoil/accommodationRegion";
+import * as style from '../../feature/accommodation/styles/accommodationInfo';
+import { useSetRecoilState } from 'recoil';
+import { accommodationRegionState } from '../../recoil/accommodationRegion';
 
 const AccommodationRegion = () => {
-  const setAccommodationRegionState = useSetRecoilState(accommodationRegionState);
+  const setAccommodationRegionState = useSetRecoilState(
+    accommodationRegionState,
+  );
   const handleRegionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setAccommodationRegionState({
       region: e.target.value,

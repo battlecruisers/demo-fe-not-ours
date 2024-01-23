@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const RankingItemWrapper = styled.div`
   display: flex;
@@ -75,4 +75,12 @@ const Price = styled.p`
   }
 `;
 
-export { RankingItemWrapper, NumberBox, StyledLink, ImageBox, Description, Name, Price };
+export {
+  RankingItemWrapper,
+  NumberBox,
+  StyledLink,
+  ImageBox,
+  Description,
+  Name,
+  Price,
+};

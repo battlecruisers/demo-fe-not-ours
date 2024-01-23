@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const TitleAndLinkBox = styled.div`
   display: flex;
@@ -64,4 +64,12 @@ const Price = styled.p`
   text-align: right;
 `;
 
-export { TitleAndLinkBox, LinkToOthers, SwiperItemContainer, ImgBox, Description, Title, Price };
+export {
+  TitleAndLinkBox,
+  LinkToOthers,
+  SwiperItemContainer,
+  ImgBox,
+  Description,
+  Title,
+  Price,
+};

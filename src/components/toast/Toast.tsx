@@ -1,10 +1,10 @@
-import { BsCheckLg } from "react-icons/bs";
-import { useEffect } from "react";
-import { Box, TextWrapper, LinkToCart } from "./toast.styles";
-import { useParams } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { toastState } from "../../recoil/toast";
-import { ToastProps } from "./toast.types";
+import { BsCheckLg } from 'react-icons/bs';
+import { useEffect } from 'react';
+import { Box, TextWrapper, LinkToCart } from './toast.styles';
+import { useParams } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { toastState } from '../../recoil/toast';
+import { ToastProps } from './toast.types';
 
 const Toast = ({ setToast }: ToastProps) => {
   const { page } = useParams();
@@ -12,7 +12,7 @@ const Toast = ({ setToast }: ToastProps) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setToast({ open: false, message: "" });
+      setToast({ open: false, message: '' });
     }, 3000);
 
     return () => {
@@ -21,7 +21,7 @@ const Toast = ({ setToast }: ToastProps) => {
   }, [message, setToast]);
 
   const handleCloseToast = () => {
-    setToast({ open: false, message: "" });
+    setToast({ open: false, message: '' });
   };
 
   return (
@@ -30,7 +30,7 @@ const Toast = ({ setToast }: ToastProps) => {
         <BsCheckLg size="20" color="#E7497A" />
         <p>{message}</p>
       </TextWrapper>
-      {page != "cart" ? (
+      {page != 'cart' ? (
         <LinkToCart to="/cart" onClick={handleCloseToast}>
           장바구니로 가기
         </LinkToCart>

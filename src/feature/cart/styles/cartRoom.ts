@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { IoClose } from "react-icons/io5";
+import styled from 'styled-components';
+import { IoClose } from 'react-icons/io5';
 
 export const CartList = styled.ul`
   width: 100%;
@@ -26,13 +26,15 @@ export const Accommodation = styled.a<{ $isPaymentId?: boolean }>`
   margin-bottom: 10px;
 
   text-decoration: none;
-  color: ${props => (props.$isPaymentId ? props.theme.color.middleGray : "black")};
+  color: ${props =>
+    props.$isPaymentId ? props.theme.color.middleGray : 'black'};
 
   cursor: pointer;
 
   &:visited {
     text-decoration: none;
-    color: ${props => (props.$isPaymentId ? props.theme.color.middleGray : "black")};
+    color: ${props =>
+      props.$isPaymentId ? props.theme.color.middleGray : 'black'};
   }
 `;
 

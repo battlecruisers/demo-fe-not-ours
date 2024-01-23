@@ -1,4 +1,4 @@
-import * as style from "../styles/pageNotFound";
+import * as style from '../styles/pageNotFound';
 
 const PageNotFound = () => {
   return (

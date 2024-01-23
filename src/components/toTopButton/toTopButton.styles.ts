@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface StyledToTopButtonProps {
   $isVisible: boolean;
@@ -18,7 +18,7 @@ const StyledToTopButton = styled.div<StyledToTopButtonProps>`
   position: fixed;
   z-index: 10;
   right: calc(50% - 22rem);
-  bottom: ${props => (props.$isVisible ? props.$pathBottom : "-50px")};
+  bottom: ${props => (props.$isVisible ? props.$pathBottom : '-50px')};
 
   display: flex;
   justify-content: center;

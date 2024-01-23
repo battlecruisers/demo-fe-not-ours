@@ -5,22 +5,25 @@ import {
   getRankingAccommodations,
   getFestivalInfo,
   getRegionList,
-} from "../../home.api";
-import { useQuery } from "@tanstack/react-query";
-import { RelatedProps } from "../../home.types";
+} from '../../home.api';
+import { useQuery } from '@tanstack/react-query';
+import { RelatedProps } from '../../home.types';
 
 export const useAllAccommodations = () => {
   return useQuery({
-    queryKey: ["allAccommodations"],
+    queryKey: ['allAccommodations'],
     queryFn: getAllAccommodations,
     staleTime: 1 * 60 * 1000,
   });
 };
 
-export const useRelatedAccommodations = ({ category, region }: RelatedProps) => {
+export const useRelatedAccommodations = ({
+  category,
+  region,
+}: RelatedProps) => {
   const relatedRequest = { category, region };
   return useQuery({
-    queryKey: ["relatedAccommodations", category, region],
+    queryKey: ['relatedAccommodations', category, region],
     queryFn: () => getRelatedAccommodations(relatedRequest),
     enabled: !!category,
     staleTime: 1 * 60 * 1000,
@@ -29,7 +32,7 @@ export const useRelatedAccommodations = ({ category, region }: RelatedProps) => 
 
 export const useRegionAccommodations = (region: string) => {
   return useQuery({
-    queryKey: ["regionAccommodations", region],
+    queryKey: ['regionAccommodations', region],
     queryFn: () => getRegionAccommodations(region),
     staleTime: 1 * 60 * 1000,
   });
@@ -37,7 +40,7 @@ export const useRegionAccommodations = (region: string) => {
 
 export const useRankingAccommodations = () => {
   return useQuery({
-    queryKey: ["rankingAccommodations"],
+    queryKey: ['rankingAccommodations'],
     queryFn: getRankingAccommodations,
     staleTime: 1 * 60 * 1000,
   });
@@ -45,7 +48,7 @@ export const useRankingAccommodations = () => {
 
 export const useFestivalInfo = () => {
   return useQuery({
-    queryKey: ["festivalInfo"],
+    queryKey: ['festivalInfo'],
     queryFn: getFestivalInfo,
     staleTime: 1 * 60 * 1000,
   });
@@ -53,7 +56,7 @@ export const useFestivalInfo = () => {
 
 export const useRegionList = () => {
   return useQuery({
-    queryKey: ["regionList"],
+    queryKey: ['regionList'],
     queryFn: getRegionList,
     staleTime: 1 * 60 * 1000,
   });

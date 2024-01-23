@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SelectCartListHeader = styled.div`
   width: 100%;
@@ -12,7 +12,10 @@ export const DeleteCheckedbox = styled.button<{ $selectedRooms?: number }>`
 
   font-size: ${({ theme }) => theme.fontSize.xxs};
 
-  color: ${props => (props.$selectedRooms ? props.theme.color.mainPink : props.theme.color.middleGray)};
+  color: ${props =>
+    props.$selectedRooms
+      ? props.theme.color.mainPink
+      : props.theme.color.middleGray};
   background-color: transparent;
 
   transition: 0.5s;

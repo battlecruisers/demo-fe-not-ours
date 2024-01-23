@@ -1,17 +1,17 @@
-import { Link } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import * as style from "../styles/accommodationRoomItem";
-import { RoomListProps } from "../accommodationInformation.types";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { accommodationMemberState } from "../../../recoil/accommodationMember";
-import { accommodationDateState } from "../../../recoil/accommodationDate";
-import { handleDateParam } from "../../accommodation/accommodation.utils";
-import CartButton from "./CartButton";
-import ReservationButton from "./ReservationButton";
+import { Link } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import * as style from '../styles/accommodationRoomItem';
+import { RoomListProps } from '../accommodationInformation.types';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { accommodationMemberState } from '../../../recoil/accommodationMember';
+import { accommodationDateState } from '../../../recoil/accommodationDate';
+import { handleDateParam } from '../../accommodation/accommodation.utils';
+import CartButton from './CartButton';
+import ReservationButton from './ReservationButton';
 
 const AccommodationRoomItem = ({
   id,
@@ -36,8 +36,8 @@ const AccommodationRoomItem = ({
 
   const isAvailableGuest = guest <= capacity;
 
-  let reservationStartDate = "";
-  let reservationEndDate = "";
+  let reservationStartDate = '';
+  let reservationEndDate = '';
   if (dateArray) {
     reservationStartDate = dateArray![0];
     reservationEndDate = dateArray![1];
@@ -67,13 +67,16 @@ const AccommodationRoomItem = ({
       </style.RoomImgWrapper>
       <style.RoomInfo>
         <style.RoomTopWrapper>
-          <style.RoomName>{name.length >= 16 ? name.slice(0, 15) + "..." : name}</style.RoomName>
+          <style.RoomName>
+            {name.length >= 16 ? name.slice(0, 15) + '...' : name}
+          </style.RoomName>
           <Link to={`/accommodation/${accommodationId}/room/${id}`}>
-            <style.RoomDetailButton>상세보기 {">"}</style.RoomDetailButton>
+            <style.RoomDetailButton>상세보기 {'>'}</style.RoomDetailButton>
           </Link>
         </style.RoomTopWrapper>
         <style.RoomCheckInOut>
-          체크인: {checkInTime.slice(0, 5)} ~ 체크아웃: {checkOutTime.slice(0, 5)}
+          체크인: {checkInTime.slice(0, 5)} ~ 체크아웃:{' '}
+          {checkOutTime.slice(0, 5)}
         </style.RoomCheckInOut>
         <style.RoomPrice>
           {totalPrice.toLocaleString()}원 / {stayDuration}박
@@ -87,14 +90,20 @@ const AccommodationRoomItem = ({
           <style.CapacityWrapper>
             <style.GuestIcon />
             <style.GuestNumber>인원: {capacity}인</style.GuestNumber>
-            <style.NoAvailableRoom>* 선택하신 인원으로 이용이 불가능합니다.</style.NoAvailableRoom>
+            <style.NoAvailableRoom>
+              * 선택하신 인원으로 이용이 불가능합니다.
+            </style.NoAvailableRoom>
           </style.CapacityWrapper>
         )}
         <style.BottomWrapper>
           {isAvailableDate ? (
-            <style.RoomCount>남은 객실 수: {availableRoomCount}개</style.RoomCount>
+            <style.RoomCount>
+              남은 객실 수: {availableRoomCount}개
+            </style.RoomCount>
           ) : (
-            <style.NoAvailableRoom>* 예약이 마감되었습니다.</style.NoAvailableRoom>
+            <style.NoAvailableRoom>
+              * 예약이 마감되었습니다.
+            </style.NoAvailableRoom>
           )}
           <style.ButtonWrapper>
             {isAvailableDate && isAvailableGuest ? (

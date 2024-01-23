@@ -1,5 +1,10 @@
-import authInstance from "../../api/authInstance";
-import { PostPaymentCart, PostPaymentCartResult, PostPurchasePayload, PostPurchaseResult } from "./reservation.types";
+import authInstance from '../../api/authInstance';
+import {
+  PostPaymentCart,
+  PostPaymentCartResult,
+  PostPurchasePayload,
+  PostPurchaseResult,
+} from './reservation.types';
 
 /**
  * @postPaymentCartPayload post body 요청 정보
@@ -11,9 +16,12 @@ export const postPaymentCart = async ({
   paymentData,
   setPaymentData,
 }: PostPaymentCart): Promise<void> => {
-  const { data }: { data: PostPaymentCartResult } = await authInstance.post("/payment/cart", {
-    ...postPaymentCartPayload,
-  });
+  const { data }: { data: PostPaymentCartResult } = await authInstance.post(
+    '/payment/cart',
+    {
+      ...postPaymentCartPayload,
+    },
+  );
   setPaymentData({ ...paymentData, ...data.data });
 };
 
@@ -21,9 +29,14 @@ export const postPaymentCart = async ({
  * @postPurchasePayload post body 요청 정보
  * @return 결제 성공 메시지
  */
-export const postPurchase = async (postPurchasePayload: PostPurchasePayload): Promise<string> => {
-  const { data }: { data: PostPurchaseResult } = await authInstance.post("/payment/purchase", {
-    ...postPurchasePayload,
-  });
+export const postPurchase = async (
+  postPurchasePayload: PostPurchasePayload,
+): Promise<string> => {
+  const { data }: { data: PostPurchaseResult } = await authInstance.post(
+    '/payment/purchase',
+    {
+      ...postPurchasePayload,
+    },
+  );
   return data.message;
 };

@@ -1,6 +1,6 @@
-import { atom } from "recoil";
+import { atom } from 'recoil';
 
 export const cartButtonState = atom({
-  key: "cartButtonState",
+  key: 'cartButtonState',
   default: false,
 });

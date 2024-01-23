@@ -1,7 +1,7 @@
-import { atom } from "recoil";
-import { RadioDataState } from "../reservation.types";
+import { atom } from 'recoil';
+import { RadioDataState } from '../reservation.types';
 
 export const radioDataState = atom<RadioDataState>({
-  key: "radioDataState",
+  key: 'radioDataState',
   default: {},
 });

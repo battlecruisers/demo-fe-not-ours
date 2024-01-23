@@ -1,14 +1,18 @@
-import { useEffect, useState } from "react";
-import { useSetRecoilState } from "recoil";
-import { checkedCartRooms } from "../recoil/checkedCartRooms";
-import { setAllCheked } from "../cart.utils";
-import CartListHeader from "./CartListHeader";
-import CartRoom from "./CartRoom";
-import EmptyCart from "./EmptyCart";
-import { Accommodations } from "../../../types";
-import * as style from "../styles/selectCartList";
+import { useEffect, useState } from 'react';
+import { useSetRecoilState } from 'recoil';
+import { checkedCartRooms } from '../recoil/checkedCartRooms';
+import { setAllCheked } from '../cart.utils';
+import CartListHeader from './CartListHeader';
+import CartRoom from './CartRoom';
+import EmptyCart from './EmptyCart';
+import { Accommodations } from '../../../types';
+import * as style from '../styles/selectCartList';
 
-const SelectCartList = ({ accommodations }: { accommodations: Accommodations[] }) => {
+const SelectCartList = ({
+  accommodations,
+}: {
+  accommodations: Accommodations[];
+}) => {
   const setCheckedRooms = useSetRecoilState(checkedCartRooms);
   const [isSelectAll, setIsSelectAll] = useState(true);
 
@@ -20,10 +24,17 @@ const SelectCartList = ({ accommodations }: { accommodations: Accommodations[] }
   return (
     <>
       <style.SelectCartListWrapper>
-        <CartListHeader accommodations={accommodations} isSelectAll={isSelectAll} setIsSelectAll={setIsSelectAll} />
+        <CartListHeader
+          accommodations={accommodations}
+          isSelectAll={isSelectAll}
+          setIsSelectAll={setIsSelectAll}
+        />
 
         {accommodations.length ? (
-          <CartRoom accommodations={accommodations} setIsSelectAll={setIsSelectAll} />
+          <CartRoom
+            accommodations={accommodations}
+            setIsSelectAll={setIsSelectAll}
+          />
         ) : (
           <EmptyCart />
         )}

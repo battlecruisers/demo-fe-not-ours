@@ -1,12 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
-import { getAllAccommodationSearchData } from "../api";
-import { AccommodationSearchParams } from "../search.types";
-import { useEffect, useState } from "react";
+import { useQuery } from '@tanstack/react-query';
+import { getAllAccommodationSearchData } from '../api';
+import { AccommodationSearchParams } from '../search.types';
+import { useEffect, useState } from 'react';
 
-export const useAccommodationsSearchQuery = ({ startDate, endDate, guest, name }: AccommodationSearchParams) => {
+export const useAccommodationsSearchQuery = ({
+  startDate,
+  endDate,
+  guest,
+  name,
+}: AccommodationSearchParams) => {
   return useQuery({
-    queryKey: ["useAccommodationsSearchQuery", useDebounce(name, 400)],
-    queryFn: () => getAllAccommodationSearchData({ startDate, endDate, guest, name }),
+    queryKey: ['useAccommodationsSearchQuery', useDebounce(name, 400)],
+    queryFn: () =>
+      getAllAccommodationSearchData({ startDate, endDate, guest, name }),
   });
 };
 

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { IoSearch, IoClose } from "react-icons/io5";
+import styled from 'styled-components';
+import { IoSearch, IoClose } from 'react-icons/io5';
 
 export const AccommodationSearchInputBox = styled.div`
   width: 100%;

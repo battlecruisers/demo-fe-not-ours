@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const BannerContainer = styled.div`
   width: 19rem;
@@ -22,7 +22,8 @@ const BackgroundImg = styled.div<{ $backImage: string }>`
 
   background-size: cover;
   border-radius: 5px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url(${props => props.$backImage});
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
+    url(${props => props.$backImage});
 `;
 
 const Title = styled.p`

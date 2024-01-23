@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import { getAllAccommodationCategoryData } from "../api";
-import { AccommodationCategoryParams } from "../category.types";
+import { useQuery } from '@tanstack/react-query';
+import { getAllAccommodationCategoryData } from '../api';
+import { AccommodationCategoryParams } from '../category.types';
 export const useAccommodationsCategoryQuery = ({
   startDate,
   endDate,
@@ -8,7 +8,8 @@ export const useAccommodationsCategoryQuery = ({
   category,
 }: AccommodationCategoryParams) => {
   return useQuery({
-    queryKey: ["accommodationsList", category],
-    queryFn: () => getAllAccommodationCategoryData({ startDate, endDate, guest, category }),
+    queryKey: ['accommodationsList', category],
+    queryFn: () =>
+      getAllAccommodationCategoryData({ startDate, endDate, guest, category }),
   });
 };

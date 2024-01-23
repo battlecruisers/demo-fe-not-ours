@@ -1,17 +1,17 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import * as style from "../styles/accommodationInfo";
-import Toast from "../../../components/toast/Toast";
-import { toastState } from "../../../recoil/toast";
-import { useNavigate, useParams } from "react-router-dom";
-import { useAccommodationInfoQuery } from "../hooks/queries/fetchData";
-import { accommodationDateState } from "../../../recoil/accommodationDate";
-import { accommodationMemberState } from "../../../recoil/accommodationMember";
-import { handleDateParam } from "../../accommodation/accommodation.utils";
-import AccommodationInfoSkeleton from "./AccommodationInfoSkeleton";
-import { useEffect } from "react";
-import { loginModalState } from "../recoil/accommodationLoginModal";
-import LoginModal from "../../../components/loginModal/LoginModal";
-import { userState } from "../../../recoil/userData";
+import { useRecoilState, useRecoilValue } from 'recoil';
+import * as style from '../styles/accommodationInfo';
+import Toast from '../../../components/toast/Toast';
+import { toastState } from '../../../recoil/toast';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useAccommodationInfoQuery } from '../hooks/queries/fetchData';
+import { accommodationDateState } from '../../../recoil/accommodationDate';
+import { accommodationMemberState } from '../../../recoil/accommodationMember';
+import { handleDateParam } from '../../accommodation/accommodation.utils';
+import AccommodationInfoSkeleton from './AccommodationInfoSkeleton';
+import { useEffect } from 'react';
+import { loginModalState } from '../recoil/accommodationLoginModal';
+import LoginModal from '../../../components/loginModal/LoginModal';
+import { userState } from '../../../recoil/userData';
 
 const AccommodationInfo = () => {
   const [toast, setToast] = useRecoilState(toastState);
@@ -25,8 +25,8 @@ const AccommodationInfo = () => {
   const [logInModal, setLogInModal] = useRecoilState(loginModalState);
   const user = useRecoilValue(userState);
 
-  let reservationStartDate = "";
-  let reservationEndDate = "";
+  let reservationStartDate = '';
+  let reservationEndDate = '';
   if (dateArray) {
     reservationStartDate = dateArray![0];
     reservationEndDate = dateArray![1];
@@ -42,9 +42,9 @@ const AccommodationInfo = () => {
   const navigation = useNavigate();
 
   useEffect(() => {
-    if (status === "error") {
-      window.alert("사용 중 문제가 발생했습니다. 메인에서 다시 시도해주세요.");
-      navigation("/");
+    if (status === 'error') {
+      window.alert('사용 중 문제가 발생했습니다. 메인에서 다시 시도해주세요.');
+      navigation('/');
       return () => {
         null;
       };
@@ -54,7 +54,7 @@ const AccommodationInfo = () => {
     }
   }, [navigation, setLogInModal, status, user.accessToken]);
 
-  return status === "pending" ? (
+  return status === 'pending' ? (
     <AccommodationInfoSkeleton />
   ) : (
     <style.Wrapper>
@@ -63,12 +63,18 @@ const AccommodationInfo = () => {
       </style.ImgWrapper>
       <style.TextInfo>
         <style.AccommodationName>{data.data.name}</style.AccommodationName>
-        <style.AccommodationCategory>{data.data.category}</style.AccommodationCategory>
-        <style.AccommodationAddress>{data.data.address}</style.AccommodationAddress>
+        <style.AccommodationCategory>
+          {data.data.category}
+        </style.AccommodationCategory>
+        <style.AccommodationAddress>
+          {data.data.address}
+        </style.AccommodationAddress>
         <style.DivideLine />
         <style.AccommodationStaticDescWrap>
           <style.StaticDesc>숙소 소개</style.StaticDesc>
-          <style.AccommodationDesc>{data.data.description}</style.AccommodationDesc>
+          <style.AccommodationDesc>
+            {data.data.description}
+          </style.AccommodationDesc>
         </style.AccommodationStaticDescWrap>
         <style.DivideLine />
       </style.TextInfo>

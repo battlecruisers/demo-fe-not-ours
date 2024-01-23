@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const RadioWrapper = styled.div`
   width: 100%;
@@ -34,7 +34,7 @@ export const RadioLabel = styled.label`
     vertical-align: text-top;
   }
 
-  [type="radio"] {
+  [type='radio'] {
     appearance: none;
     border: 1px solid ${({ theme }) => theme.color.darkGray};
     border-radius: 50%;
@@ -43,11 +43,11 @@ export const RadioLabel = styled.label`
     transition: 0.5s;
   }
 
-  [type="radio"]:checked {
+  [type='radio']:checked {
     border: 5px solid ${({ theme }) => theme.color.mainPink};
   }
 
-  [type="radio"]:hover + span {
+  [type='radio']:hover + span {
     cursor: pointer;
   }
 `;

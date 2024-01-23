@@ -1,6 +1,6 @@
-import ReservationCaution from "./ReservationCaution";
-import ReservationRooms from "./ReservationRooms";
-import { ReservationWrapper } from "../styles/reservationWrapper";
+import ReservationCaution from './ReservationCaution';
+import ReservationRooms from './ReservationRooms';
+import { ReservationWrapper } from '../styles/reservationWrapper';
 
 const ReservationSummary = () => {
   return (

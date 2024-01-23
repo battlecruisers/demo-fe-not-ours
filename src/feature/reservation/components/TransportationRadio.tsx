@@ -1,12 +1,15 @@
-import { useRecoilState } from "recoil";
-import { radioDataState } from "../recoil/checkedRadio";
-import { RoomOption } from "../../../types";
-import * as style from "../styles/transportationRadio";
+import { useRecoilState } from 'recoil';
+import { radioDataState } from '../recoil/checkedRadio';
+import { RoomOption } from '../../../types';
+import * as style from '../styles/transportationRadio';
 
 const TransportationRadio = ({ roomOption }: { roomOption: RoomOption }) => {
   const [radioData, setRadioData] = useRecoilState(radioDataState);
 
-  const handleRadioChange = (cartProductId: number, radioInput: "차량" | "도보") => {
+  const handleRadioChange = (
+    cartProductId: number,
+    radioInput: '차량' | '도보',
+  ) => {
     setRadioData(prevData => ({
       ...prevData,
       [cartProductId]: {
@@ -25,8 +28,10 @@ const TransportationRadio = ({ roomOption }: { roomOption: RoomOption }) => {
             type="radio"
             name={`transportation-${roomOption.cartProductId}`}
             value="차량"
-            checked={radioData[roomOption.cartProductId]?.transportation === "차량"}
-            onChange={() => handleRadioChange(roomOption.cartProductId, "차량")}
+            checked={
+              radioData[roomOption.cartProductId]?.transportation === '차량'
+            }
+            onChange={() => handleRadioChange(roomOption.cartProductId, '차량')}
           />
           <span>차량</span>
         </style.RadioLabel>
@@ -35,8 +40,10 @@ const TransportationRadio = ({ roomOption }: { roomOption: RoomOption }) => {
             type="radio"
             name={`transportation-${roomOption.cartProductId}`}
             value="도보"
-            checked={radioData[roomOption.cartProductId]?.transportation === "도보"}
-            onChange={() => handleRadioChange(roomOption.cartProductId, "도보")}
+            checked={
+              radioData[roomOption.cartProductId]?.transportation === '도보'
+            }
+            onChange={() => handleRadioChange(roomOption.cartProductId, '도보')}
           />
           <span>도보</span>
         </style.RadioLabel>

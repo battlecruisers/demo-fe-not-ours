@@ -1,7 +1,12 @@
-import instance from "../../api/instance";
-import { RoomInfoParams } from "./RoomInformation.types";
+import instance from '../../api/instance';
+import { RoomInfoParams } from './RoomInformation.types';
 
-export const getRoomInfoData = async ({ id, reservationStartDate, reservationEndDate, member }: RoomInfoParams) => {
+export const getRoomInfoData = async ({
+  id,
+  reservationStartDate,
+  reservationEndDate,
+  member,
+}: RoomInfoParams) => {
   try {
     const { data } = await instance.get(`/accommodations/roomOptions/${id}`, {
       params: {
@@ -13,6 +18,6 @@ export const getRoomInfoData = async ({ id, reservationStartDate, reservationEnd
     });
     return data;
   } catch (error) {
-    console.error("error get room information:", error);
+    console.error('error get room information:', error);
   }
 };

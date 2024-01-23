@@ -1,6 +1,6 @@
-import * as style from "../styles/accommodationRoomInfo";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import * as style from '../styles/accommodationRoomInfo';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const AccommodationRoomInfoSkeleton = () => {
   return (

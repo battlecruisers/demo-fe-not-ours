@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface ReservationButtonProps {
   $isWide?: boolean;
 }
 
 export const ReservationButton = styled.button<ReservationButtonProps>`
-  width: ${({ $isWide }) => ($isWide ? "250px" : "90px")};
+  width: ${({ $isWide }) => ($isWide ? '250px' : '90px')};
   height: 32px;
 
   border-radius: 10px;
@@ -23,7 +23,7 @@ export const ReservationButton = styled.button<ReservationButtonProps>`
 `;
 
 export const DisableReservationButton = styled.button<ReservationButtonProps>`
-  width: ${({ $isWide }) => ($isWide ? "250px" : "90px")};
+  width: ${({ $isWide }) => ($isWide ? '250px' : '90px')};
   height: 32px;
 
   border-radius: 10px;

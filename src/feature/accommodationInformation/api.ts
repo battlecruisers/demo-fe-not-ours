@@ -1,6 +1,6 @@
-import { AccommodationInfoParams } from "./accommodationInformation.types";
-import authInstance from "../../api/authInstance";
-import instance from "../../api/instance";
+import { AccommodationInfoParams } from './accommodationInformation.types';
+import authInstance from '../../api/authInstance';
+import instance from '../../api/instance';
 
 export const getAccommodationInfoData = async ({
   id,
@@ -19,7 +19,7 @@ export const getAccommodationInfoData = async ({
     });
     return data;
   } catch (error) {
-    console.error("error get accommodation info:", error);
+    console.error('error get accommodation info:', error);
   }
 };
 
@@ -30,7 +30,7 @@ export const postCart = async (
   reservationEndDate: string,
   stayDuration: number,
 ) => {
-  const { data } = await authInstance.post("/carts", {
+  const { data } = await authInstance.post('/carts', {
     roomOptionId,
     numberOfGuest,
     reservationStartDate,
@@ -47,7 +47,7 @@ export const postReservation = async (
   reservationEndDate: string,
   stayDuration: number,
 ) => {
-  const { data } = await authInstance.post("/payment/instant", {
+  const { data } = await authInstance.post('/payment/instant', {
     roomOptionId,
     numberOfGuest,
     reservationStartDate,

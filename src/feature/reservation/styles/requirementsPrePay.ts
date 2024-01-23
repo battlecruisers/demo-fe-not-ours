@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const RequirementsTitle = styled.h2`
   margin-bottom: 15px;

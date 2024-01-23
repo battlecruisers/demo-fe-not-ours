@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { LuShoppingCart } from "react-icons/lu";
+import styled from 'styled-components';
+import { LuShoppingCart } from 'react-icons/lu';
 
 export const CartIcon = styled(LuShoppingCart)`
   font-size: ${({ theme }) => theme.fontSize.xxl};

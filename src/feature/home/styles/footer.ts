@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const FooterContainer = styled.div`
   padding: 5% 5% 60px;
@@ -74,4 +74,12 @@ const ButtonBox = styled(Link)`
   }
 `;
 
-export { FooterContainer, FooterHeader, YLogoBox, FLogoBox, ContextBox, ButtonContainer, ButtonBox };
+export {
+  FooterContainer,
+  FooterHeader,
+  YLogoBox,
+  FLogoBox,
+  ContextBox,
+  ButtonContainer,
+  ButtonBox,
+};

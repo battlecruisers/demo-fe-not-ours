@@ -1,7 +1,7 @@
-import { useMutation } from "@tanstack/react-query";
-import { postReservation } from "../../api";
-import { PostSingleReservation } from "../../accommodationInformation.types";
-import { useNavigate } from "react-router-dom";
+import { useMutation } from '@tanstack/react-query';
+import { postReservation } from '../../api';
+import { PostSingleReservation } from '../../accommodationInformation.types';
+import { useNavigate } from 'react-router-dom';
 
 export const usePostSingleReservation = () => {
   const navigation = useNavigate();
@@ -14,13 +14,21 @@ export const usePostSingleReservation = () => {
       reservationEndDate,
       stayDuration,
     }: PostSingleReservation) => {
-      return postReservation(roomOptionId, numberOfGuest, reservationStartDate, reservationEndDate, stayDuration);
+      return postReservation(
+        roomOptionId,
+        numberOfGuest,
+        reservationStartDate,
+        reservationEndDate,
+        stayDuration,
+      );
     },
     onSuccess: data => {
       const cartId = data.data.cartId;
-      const cartProducts = [data.data.accommodations[0].roomOptions[0].cartProductId];
+      const cartProducts = [
+        data.data.accommodations[0].roomOptions[0].cartProductId,
+      ];
 
-      navigation("/reservation", {
+      navigation('/reservation', {
         state: {
           cartId,
           cartProducts,

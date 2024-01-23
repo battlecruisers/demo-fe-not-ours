@@ -1,6 +1,10 @@
-import { useRef, useEffect } from "react";
-import { Festival } from "../../home.types";
-import { BannerContainer, BackgroundImg, Title } from "../../styles/festivalCarousel/festivalCarousel";
+import { useRef, useEffect } from 'react';
+import { Festival } from '../../home.types';
+import {
+  BannerContainer,
+  BackgroundImg,
+  Title,
+} from '../../styles/festivalCarousel/festivalCarousel';
 import {
   ModalContainer,
   ModalWrapper,
@@ -11,15 +15,16 @@ import {
   ModalTitle,
   InfoBox,
   ContactNumber,
-} from "../../styles/festivalCarousel/festivalModal";
-import { IoClose } from "react-icons/io5";
+} from '../../styles/festivalCarousel/festivalModal';
+import { IoClose } from 'react-icons/io5';
 
 interface FestivalProps {
   festival: Festival;
 }
 
 const FestivalCarouselItem = ({ festival }: FestivalProps) => {
-  const { title, thumbnailImageUrl, startDate, endDate, address, phoneNumber } = festival;
+  const { title, thumbnailImageUrl, startDate, endDate, address, phoneNumber } =
+    festival;
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const showModal = () => {
@@ -33,7 +38,7 @@ const FestivalCarouselItem = ({ festival }: FestivalProps) => {
     if (dialogRef.current) {
       const dialogElement: HTMLDialogElement = dialogRef.current;
 
-      dialogElement.addEventListener("click", event => {
+      dialogElement.addEventListener('click', event => {
         const dialogArea = dialogElement.getBoundingClientRect();
         if (
           event.clientX < dialogArea.left ||

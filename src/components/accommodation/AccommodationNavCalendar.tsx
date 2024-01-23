@@ -1,25 +1,29 @@
-import { useEffect, useState } from "react";
-import { accommodationDateState } from "../../recoil/accommodationDate.ts";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { handleDateString } from "../../feature/accommodation/accommodation.utils.ts";
-import * as style from "../../feature/accommodation/styles/accommodationInfo.ts";
-import { IoCalendarClearOutline } from "react-icons/io5";
-import AccommodationCalendar from "../accommodationCalendar/AccommodationCalendar.tsx";
-import { getSessionValue } from "../../util/searchSessionValue.tsx";
-import { accommodationMemberState } from "../../recoil/accommodationMember.ts";
-import { getTomorrow } from "../../util/getTomorrow.tsx";
-import { useLocation } from "react-router-dom";
-import { accommodationRegionState } from "../../recoil/accommodationRegion.ts";
+import { useEffect, useState } from 'react';
+import { accommodationDateState } from '../../recoil/accommodationDate.ts';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { handleDateString } from '../../feature/accommodation/accommodation.utils.ts';
+import * as style from '../../feature/accommodation/styles/accommodationInfo.ts';
+import { IoCalendarClearOutline } from 'react-icons/io5';
+import AccommodationCalendar from '../accommodationCalendar/AccommodationCalendar.tsx';
+import { getSessionValue } from '../../util/searchSessionValue.tsx';
+import { accommodationMemberState } from '../../recoil/accommodationMember.ts';
+import { getTomorrow } from '../../util/getTomorrow.tsx';
+import { useLocation } from 'react-router-dom';
+import { accommodationRegionState } from '../../recoil/accommodationRegion.ts';
 
 const AccommodationInfoCalender = () => {
   const [isCalendarShow, setIsCalendarShow] = useState<boolean>(false);
-  const [dateRange, setDateRange] = useState<string | undefined>("");
+  const [dateRange, setDateRange] = useState<string | undefined>('');
   const { startDate, endDate } = useRecoilValue(accommodationDateState);
   const setAccommodationDateState = useSetRecoilState(accommodationDateState);
-  const setAccommodationMemberState = useSetRecoilState(accommodationMemberState);
-  const setAccommodationRegionState = useSetRecoilState(accommodationRegionState);
+  const setAccommodationMemberState = useSetRecoilState(
+    accommodationMemberState,
+  );
+  const setAccommodationRegionState = useSetRecoilState(
+    accommodationRegionState,
+  );
   const { pathname } = useLocation();
-  const prevHistoryPage = getSessionValue("historyPage");
+  const prevHistoryPage = getSessionValue('historyPage');
 
   useEffect(() => {
     if (startDate.length || endDate.length) {
@@ -37,7 +41,7 @@ const AccommodationInfoCalender = () => {
   }, [startDate, endDate]);
 
   useEffect(() => {
-    const thisPage = pathname.split("/")[1];
+    const thisPage = pathname.split('/')[1];
     if (thisPage !== prevHistoryPage) {
       const tomorrow = getTomorrow();
 
@@ -49,7 +53,7 @@ const AccommodationInfoCalender = () => {
         guest: 2,
       });
       setAccommodationRegionState({
-        region: "",
+        region: '',
       });
     }
   }, [prevHistoryPage]);
@@ -62,7 +66,9 @@ const AccommodationInfoCalender = () => {
         }}
       >
         <IoCalendarClearOutline />
-        <style.AccommodationInfoCalenderParagraph>{dateRange}</style.AccommodationInfoCalenderParagraph>
+        <style.AccommodationInfoCalenderParagraph>
+          {dateRange}
+        </style.AccommodationInfoCalenderParagraph>
       </style.AccommodationInfoCalenderBox>
       <AccommodationCalendar
         isCalendarShow={isCalendarShow}

@@ -1,17 +1,17 @@
-import { ReservationWrapper } from "../styles/reservationWrapper";
-import * as style from "../styles/guestInformation";
-import { useEffect, useState } from "react";
-import { getUser } from "../../profile/profile.api";
-import axios from "axios";
-import { useSetRecoilState } from "recoil";
-import { userState } from "../../../recoil/userData";
-import LoginModal from "../../../components/loginModal/LoginModal";
+import { ReservationWrapper } from '../styles/reservationWrapper';
+import * as style from '../styles/guestInformation';
+import { useEffect, useState } from 'react';
+import { getUser } from '../../profile/profile.api';
+import axios from 'axios';
+import { useSetRecoilState } from 'recoil';
+import { userState } from '../../../recoil/userData';
+import LoginModal from '../../../components/loginModal/LoginModal';
 
 const GuestInformation = () => {
   const setUser = useSetRecoilState(userState);
 
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
 
   const [isLoginModal, setIsLoginModal] = useState<boolean>(false);
 
@@ -28,8 +28,8 @@ const GuestInformation = () => {
       if (axios.isAxiosError(error) && error.response) {
         if (error.response.status === 405 || error.response.status === 401) {
           setUser({
-            accessToken: "",
-            refreshToken: "",
+            accessToken: '',
+            refreshToken: '',
           });
           setIsLoginModal(true);
         } else {
@@ -43,8 +43,8 @@ const GuestInformation = () => {
     handleGetUser();
 
     return () => {
-      setName("");
-      setEmail("");
+      setName('');
+      setEmail('');
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

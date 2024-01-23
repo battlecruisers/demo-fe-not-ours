@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Div = styled.div`
   padding: 4rem 3rem 0 3rem;

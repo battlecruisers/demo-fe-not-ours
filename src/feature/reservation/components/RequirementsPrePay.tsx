@@ -1,14 +1,24 @@
-import { useState } from "react";
-import { Checkbox } from "../../../styles/checkbox";
-import { DELAY_SETAllCHECKED, REQUIRMENTS } from "../reservation.constants";
-import { RequirementsTitle, RequirementsContents, Requirement } from "../styles/requirementsPrePay";
-import { ReservationWrapper } from "../styles/reservationWrapper";
+import { useState } from 'react';
+import { Checkbox } from '../../../styles/checkbox';
+import { DELAY_SETAllCHECKED, REQUIRMENTS } from '../reservation.constants';
+import {
+  RequirementsTitle,
+  RequirementsContents,
+  Requirement,
+} from '../styles/requirementsPrePay';
+import { ReservationWrapper } from '../styles/reservationWrapper';
 
-const RequirementsPrePay = ({ setAllChecked }: { setAllChecked: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const RequirementsPrePay = ({
+  setAllChecked,
+}: {
+  setAllChecked: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [countChecked, setCountChecked] = useState(0);
 
   const handleCountChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.target.checked ? setCountChecked(prev => prev + 1) : setCountChecked(prev => prev - 1);
+    e.target.checked
+      ? setCountChecked(prev => prev + 1)
+      : setCountChecked(prev => prev - 1);
   };
 
   setTimeout(() => {
@@ -23,8 +33,14 @@ const RequirementsPrePay = ({ setAllChecked }: { setAllChecked: React.Dispatch<R
         {REQUIRMENTS.map((requirement, index) => (
           <Requirement key={`requirement-${index}`}>
             <Checkbox>
-              <input type="checkbox" id={`requirement-input-${index}`} onChange={handleCountChecked} />
-              <label htmlFor={`requirement-input-${index}`}>{requirement}</label>
+              <input
+                type="checkbox"
+                id={`requirement-input-${index}`}
+                onChange={handleCountChecked}
+              />
+              <label htmlFor={`requirement-input-${index}`}>
+                {requirement}
+              </label>
             </Checkbox>
           </Requirement>
         ))}

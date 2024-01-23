@@ -1,5 +1,5 @@
-import * as style from "../styles/emptyCart";
-import { Link } from "react-router-dom";
+import * as style from '../styles/emptyCart';
+import { Link } from 'react-router-dom';
 
 const EmptyCart = () => {
   return (

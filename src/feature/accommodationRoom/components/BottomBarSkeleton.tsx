@@ -1,6 +1,6 @@
-import * as style from "../styles/bottomBar";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import * as style from '../styles/bottomBar';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const BottomBarSkeleton = () => {
   return (

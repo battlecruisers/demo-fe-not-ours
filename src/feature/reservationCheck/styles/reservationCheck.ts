@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { PiAirplaneTiltDuotone } from "react-icons/pi";
+import styled from 'styled-components';
+import { PiAirplaneTiltDuotone } from 'react-icons/pi';
 
 export const ReservationChecktWrapper = styled.div`
   display: flex;
