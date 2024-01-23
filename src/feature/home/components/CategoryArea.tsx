@@ -1,5 +1,5 @@
-import { HomeInnerContainer } from "../styles/homeCommon";
-import { InnerWrapper, IconBox, XSsizeP } from "../styles/categoryArea";
+import { HomeInnerContainer } from '../styles/homeCommon';
+import { InnerWrapper, IconBox, XSsizeP } from '../styles/categoryArea';
 
 const CategoryArea = () => {
   return (

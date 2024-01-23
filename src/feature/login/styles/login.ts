@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Message } from "../../signUp/styles/signUp";
+import styled from 'styled-components';
+import { Message } from '../../signUp/styles/signUp';
 
 export const LoginMessage = styled(Message)`
   padding-bottom: 10px;

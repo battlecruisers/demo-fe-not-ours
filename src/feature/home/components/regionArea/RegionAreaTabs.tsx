@@ -1,10 +1,14 @@
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import { Swiper as SwiperCore } from "swiper/types";
-import { SwiperNavTabs, SwiperTab, SpanTab } from "../../styles/regionArea/regionAreaTabs.ts";
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { Swiper as SwiperCore } from 'swiper/types';
+import {
+  SwiperNavTabs,
+  SwiperTab,
+  SpanTab,
+} from '../../styles/regionArea/regionAreaTabs.ts';
 
 interface TabsProps {
   regions: string[] | undefined;

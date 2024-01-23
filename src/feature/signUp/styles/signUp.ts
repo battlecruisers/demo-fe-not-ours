@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { MessageProps } from "../signUp.types";
+import styled from 'styled-components';
+import { MessageProps } from '../signUp.types';
 
 export const Div = styled.div`
   width: 90%;
@@ -63,8 +63,10 @@ export const EmailButton = styled.button<MessageProps>`
   margin-left: auto;
   padding: 8px 18px 6px 18px;
 
-  color: ${({ $isconfirm, theme }) => ($isconfirm ? theme.color.white : theme.color.mainPink)};
-  background-color: ${({ $isconfirm, theme }) => ($isconfirm ? theme.color.mainPink : theme.color.white)};
+  color: ${({ $isconfirm, theme }) =>
+    $isconfirm ? theme.color.white : theme.color.mainPink};
+  background-color: ${({ $isconfirm, theme }) =>
+    $isconfirm ? theme.color.mainPink : theme.color.white};
   border-radius: ${({ theme }) => theme.box.radius};
   border: 2px solid ${({ theme }) => theme.color.mainPink};
 
@@ -73,9 +75,12 @@ export const EmailButton = styled.button<MessageProps>`
   transition: 0.4s;
 
   &:hover {
-    color: ${({ $isconfirm, theme }) => ($isconfirm ? theme.color.white : theme.color.hoverPink)};
+    color: ${({ $isconfirm, theme }) =>
+      $isconfirm ? theme.color.white : theme.color.hoverPink};
     border: ${({ $isconfirm, theme }) =>
-      $isconfirm ? `2px solid ${theme.color.mainPink}` : `2px solid ${theme.color.hoverPink}`};
+      $isconfirm
+        ? `2px solid ${theme.color.mainPink}`
+        : `2px solid ${theme.color.hoverPink}`};
     transition: 0.4s;
   }
 
@@ -93,7 +98,8 @@ export const EmailButton = styled.button<MessageProps>`
 
 export const Message = styled.p<MessageProps>`
   font-size: ${({ theme }) => theme.fontSize.xxs};
-  color: ${({ $isconfirm, theme }) => ($isconfirm ? theme.color.green : theme.color.red)};
+  color: ${({ $isconfirm, theme }) =>
+    $isconfirm ? theme.color.green : theme.color.red};
   white-space: nowrap;
 `;
 

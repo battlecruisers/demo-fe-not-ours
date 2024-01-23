@@ -1,6 +1,6 @@
-import AccommodationNav from "../components/accommodation/AccommodationNav";
-import { AccommodationLayout } from "../feature/accommodation/styles/accommodationLayout";
-import AccommodationCategory from "../feature/category/components/AccommodationCategory";
+import AccommodationNav from '../components/accommodation/AccommodationNav';
+import { AccommodationLayout } from '../feature/accommodation/styles/accommodationLayout';
+import AccommodationCategory from '../feature/category/components/AccommodationCategory';
 
 const Category = () => {
   return (

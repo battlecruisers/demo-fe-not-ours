@@ -1,14 +1,14 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import * as style from "../styles/bottomBar";
-import { RoomInfoProps } from "../RoomInformation.types";
-import { accommodationMemberState } from "../../../recoil/accommodationMember";
-import { accommodationDateState } from "../../../recoil/accommodationDate";
-import { handleDateParam } from "../../accommodation/accommodation.utils";
-import LoginModal from "../../../components/loginModal/LoginModal";
-import CartButton from "../../accommodationInformation/components/CartButton";
-import ReservationButton from "../../accommodationInformation/components/ReservationButton";
-import { loginModalState } from "../../accommodationInformation/recoil/accommodationLoginModal";
-import { useMemo } from "react";
+import { useRecoilState, useRecoilValue } from 'recoil';
+import * as style from '../styles/bottomBar';
+import { RoomInfoProps } from '../RoomInformation.types';
+import { accommodationMemberState } from '../../../recoil/accommodationMember';
+import { accommodationDateState } from '../../../recoil/accommodationDate';
+import { handleDateParam } from '../../accommodation/accommodation.utils';
+import LoginModal from '../../../components/loginModal/LoginModal';
+import CartButton from '../../accommodationInformation/components/CartButton';
+import ReservationButton from '../../accommodationInformation/components/ReservationButton';
+import { loginModalState } from '../../accommodationInformation/recoil/accommodationLoginModal';
+import { useMemo } from 'react';
 
 const BottomBar = ({ data }: RoomInfoProps) => {
   const [logInModal, setLogInModal] = useRecoilState(loginModalState);
@@ -18,17 +18,26 @@ const BottomBar = ({ data }: RoomInfoProps) => {
   const { startDate, endDate } = useRecoilValue(accommodationDateState);
   const dateArray = handleDateParam(startDate, endDate);
 
-  let reservationStartDate = "";
-  let reservationEndDate = "";
+  let reservationStartDate = '';
+  let reservationEndDate = '';
   if (dateArray) {
     reservationStartDate = dateArray![0];
     reservationEndDate = dateArray![1];
   }
 
   const room = data.data;
-  const availableRoomCount = useMemo(() => room.totalRoomCount - room.reservedRoomCount, [room]);
-  const isRoomAvailable = useMemo(() => availableRoomCount > 0, [availableRoomCount]);
-  const isAvailableGuest = useMemo(() => guest <= room.capacity, [guest, room.capacity]);
+  const availableRoomCount = useMemo(
+    () => room.totalRoomCount - room.reservedRoomCount,
+    [room],
+  );
+  const isRoomAvailable = useMemo(
+    () => availableRoomCount > 0,
+    [availableRoomCount],
+  );
+  const isAvailableGuest = useMemo(
+    () => guest <= room.capacity,
+    [guest, room.capacity],
+  );
 
   return (
     <style.Wrapper>

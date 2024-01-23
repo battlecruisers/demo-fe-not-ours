@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const PayedRoomsList = styled.li<{ $isPaymentId: boolean }>`
   width: 100%;
@@ -11,8 +11,9 @@ export const PayedRoomsList = styled.li<{ $isPaymentId: boolean }>`
   padding: 20px;
 
   box-shadow: ${({ theme }) => theme.box.shadow};
-  text-decoration: ${props => (props.$isPaymentId ? "line-through" : "none")};
-  color: ${props => (props.$isPaymentId ? props.theme.color.middleGray : "black")};
+  text-decoration: ${props => (props.$isPaymentId ? 'line-through' : 'none')};
+  color: ${props =>
+    props.$isPaymentId ? props.theme.color.middleGray : 'black'};
 `;
 
 export const RoomOptionsCancel = styled.div<{ $isPaymentId: boolean }>`
@@ -28,7 +29,10 @@ export const RoomOptionsCancel = styled.div<{ $isPaymentId: boolean }>`
   font-size: ${({ theme }) => theme.fontSize.xxs};
   color: ${({ theme }) => theme.color.mainPink};
 
-  color: ${props => (props.$isPaymentId ? props.theme.color.middleGray : props.theme.color.mainPink)};
+  color: ${props =>
+    props.$isPaymentId
+      ? props.theme.color.middleGray
+      : props.theme.color.mainPink};
 `;
 
 export const CancelBtn = styled.button`

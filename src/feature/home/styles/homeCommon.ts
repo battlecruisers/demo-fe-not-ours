@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const HomeInnerContainer = styled.div`
   min-width: 480px;

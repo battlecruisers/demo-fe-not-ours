@@ -1,7 +1,7 @@
-import { checkedCartRooms } from "../recoil/checkedCartRooms";
-import { useRecoilValue } from "recoil";
-import { calculateTotalPrice } from "../cart.utils";
-import * as style from "../styles/totalSelectedPrice";
+import { checkedCartRooms } from '../recoil/checkedCartRooms';
+import { useRecoilValue } from 'recoil';
+import { calculateTotalPrice } from '../cart.utils';
+import * as style from '../styles/totalSelectedPrice';
 
 const TotalSelectedPrice = () => {
   const checkedRooms = useRecoilValue(checkedCartRooms);
@@ -12,11 +12,17 @@ const TotalSelectedPrice = () => {
 
       <style.TotalPrice>
         <style.TotalPriceSum>
-          {checkedRooms.map(room => (room.pricePerNight * room.stayDuration).toLocaleString()).join(" + ")}
-          {" = "}
+          {checkedRooms
+            .map(room =>
+              (room.pricePerNight * room.stayDuration).toLocaleString(),
+            )
+            .join(' + ')}
+          {' = '}
         </style.TotalPriceSum>
         <style.TotalPricePrice>
-          {checkedRooms.length ? `${calculateTotalPrice(checkedRooms)} 원` : "0 원"}
+          {checkedRooms.length
+            ? `${calculateTotalPrice(checkedRooms)} 원`
+            : '0 원'}
         </style.TotalPricePrice>
       </style.TotalPrice>
     </style.TotalSelectedPriceWrapper>

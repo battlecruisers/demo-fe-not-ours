@@ -1,7 +1,9 @@
-import AccommodationContent from "../../../components/accommodation/AccommodationContent";
-import { AccommodationSearchResultParams } from "../search.types";
+import AccommodationContent from '../../../components/accommodation/AccommodationContent';
+import { AccommodationSearchResultParams } from '../search.types';
 
-const AccommodationSearch = ({ accommodations }: AccommodationSearchResultParams) => {
+const AccommodationSearch = ({
+  accommodations,
+}: AccommodationSearchResultParams) => {
   return <AccommodationContent accommodations={accommodations} />;
 };
 

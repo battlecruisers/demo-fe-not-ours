@@ -1,9 +1,9 @@
-import { atom } from "recoil";
+import { atom } from 'recoil';
 
 export const toastState = atom({
-  key: "toastState",
+  key: 'toastState',
   default: {
     open: false,
-    message: "",
+    message: '',
   },
 });

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { BsFillPeopleFill } from "react-icons/bs";
+import styled from 'styled-components';
+import { BsFillPeopleFill } from 'react-icons/bs';
 
 export const Box = styled.div`
   width: 100%;

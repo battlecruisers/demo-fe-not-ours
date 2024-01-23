@@ -1,5 +1,5 @@
-import { IoClose } from "react-icons/io5";
-import styled, { css } from "styled-components";
+import { IoClose } from 'react-icons/io5';
+import styled, { css } from 'styled-components';
 
 export const CalendarLayout = styled.div<{ $isCalendarShow: boolean }>`
   width: 100%;

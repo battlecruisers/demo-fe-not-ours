@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Checkbox = styled.div`
   display: flex;
   align-items: center;
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     display: none;
   }
 
@@ -21,7 +21,7 @@ export const Checkbox = styled.div`
     cursor: pointer;
 
     &:before {
-      content: "";
+      content: '';
 
       width: 18px;
       height: 18px;
@@ -38,7 +38,7 @@ export const Checkbox = styled.div`
     }
 
     &:after {
-      content: "";
+      content: '';
 
       width: 10px;
       height: 5px;
@@ -55,7 +55,7 @@ export const Checkbox = styled.div`
     }
   }
 
-  input[type="checkbox"]:checked + label {
+  input[type='checkbox']:checked + label {
     &:before {
       background-color: ${({ theme }) => theme.color.mainPink};
       border-color: ${({ theme }) => theme.color.mainPink};

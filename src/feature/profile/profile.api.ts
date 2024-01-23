@@ -1,13 +1,13 @@
-import authInstance from "../../api/authInstance";
+import authInstance from '../../api/authInstance';
 
 export const getUser = async () => {
-  const data = await authInstance.get("/users");
+  const data = await authInstance.get('/users');
 
   return data;
 };
 
 export const putEditUser = async (name: string) => {
-  const data = await authInstance.put("/users", {
+  const data = await authInstance.put('/users', {
     name: name,
   });
 

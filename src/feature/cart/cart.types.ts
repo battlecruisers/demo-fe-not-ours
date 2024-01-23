@@ -1,4 +1,4 @@
-import { RoomOption, Accommodations, CartData } from "../../types";
+import { RoomOption, Accommodations, CartData } from '../../types';
 
 export interface FetchCartResult {
   status: number;
@@ -12,7 +12,10 @@ export interface CartListHeaderProps {
   setIsSelectAll: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export type CartRoomProps = Pick<CartListHeaderProps, "accommodations" | "setIsSelectAll">;
+export type CartRoomProps = Pick<
+  CartListHeaderProps,
+  'accommodations' | 'setIsSelectAll'
+>;
 
 export interface CartModalProps {
   selectedRooms: RoomOption[] | [];

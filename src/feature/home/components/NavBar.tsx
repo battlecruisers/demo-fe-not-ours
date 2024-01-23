@@ -1,10 +1,10 @@
-import { MdOutlineBook, MdOutlinePersonOutline } from "react-icons/md";
-import { Container, LinkedBox, IconLabel, CenterIcon } from "../styles/navBar";
-import { useRecoilValue } from "recoil";
-import { userState } from "../../../recoil/userData";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import LoginModal from "../../../components/loginModal/LoginModal";
+import { MdOutlineBook, MdOutlinePersonOutline } from 'react-icons/md';
+import { Container, LinkedBox, IconLabel, CenterIcon } from '../styles/navBar';
+import { useRecoilValue } from 'recoil';
+import { userState } from '../../../recoil/userData';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import LoginModal from '../../../components/loginModal/LoginModal';
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const NavBar = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -23,7 +23,9 @@ const NavBar = () => {
       <Container>
         <LinkedBox
           onClick={() => {
-            user.accessToken ? navigate("/reservation-list") : setIsLoginModal(true);
+            user.accessToken
+              ? navigate('/reservation-list')
+              : setIsLoginModal(true);
           }}
         >
           <MdOutlineBook />
@@ -32,7 +34,7 @@ const NavBar = () => {
         <div onClick={scrollToTop}>
           <CenterIcon src="favicon.ico" alt="상단으로 가기" />
         </div>
-        <LinkedBox onClick={() => navigate("/profile")}>
+        <LinkedBox onClick={() => navigate('/profile')}>
           <MdOutlinePersonOutline />
           <IconLabel>마이</IconLabel>
         </LinkedBox>

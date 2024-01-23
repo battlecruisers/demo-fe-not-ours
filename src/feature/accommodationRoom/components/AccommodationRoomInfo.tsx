@@ -1,15 +1,15 @@
-import Toast from "../../../components/toast/Toast";
-import { useRecoilState } from "recoil";
-import { toastState } from "../../../recoil/toast";
-import * as style from "../styles/accommodationRoomInfo";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
-import { RoomInfoProps } from "../RoomInformation.types";
-import { useRecoilValue } from "recoil";
-import { accommodationMemberState } from "../../../recoil/accommodationMember";
+import Toast from '../../../components/toast/Toast';
+import { useRecoilState } from 'recoil';
+import { toastState } from '../../../recoil/toast';
+import * as style from '../styles/accommodationRoomInfo';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination } from 'swiper/modules';
+import { RoomInfoProps } from '../RoomInformation.types';
+import { useRecoilValue } from 'recoil';
+import { accommodationMemberState } from '../../../recoil/accommodationMember';
 
 const AccommodationRoomInfo = ({ data }: RoomInfoProps) => {
   const [toast, setToast] = useRecoilState(toastState);
@@ -40,7 +40,10 @@ const AccommodationRoomInfo = ({ data }: RoomInfoProps) => {
             ))}
           </Swiper>
         ) : (
-          <style.RoomImg src={room.roomOptionImage.mainImageUrls[0]} alt={room.name} />
+          <style.RoomImg
+            src={room.roomOptionImage.mainImageUrls[0]}
+            alt={room.name}
+          />
         )}
       </style.RoomImgWrapper>
       <style.TextInfo>
@@ -57,9 +60,13 @@ const AccommodationRoomInfo = ({ data }: RoomInfoProps) => {
           </style.RoomCheckOut>
         </style.RoomCheckInOut>
         {isRoomAvailable ? (
-          <style.RoomCount>남은 객실 수: {availableRoomCount}개</style.RoomCount>
+          <style.RoomCount>
+            남은 객실 수: {availableRoomCount}개
+          </style.RoomCount>
         ) : (
-          <style.NoAvailableRoom>* 예약이 마감되었습니다.</style.NoAvailableRoom>
+          <style.NoAvailableRoom>
+            * 예약이 마감되었습니다.
+          </style.NoAvailableRoom>
         )}
         {isAvailableGuest ? (
           <style.CapacityWrapper>
@@ -70,7 +77,9 @@ const AccommodationRoomInfo = ({ data }: RoomInfoProps) => {
           <style.CapacityWrapper>
             <style.GuestIcon />
             <style.GuestNumber>인원: {room.capacity}인</style.GuestNumber>
-            <style.NoAvailableRoom>* 선택하신 인원으로 이용 불가능한 객실입니다.</style.NoAvailableRoom>
+            <style.NoAvailableRoom>
+              * 선택하신 인원으로 이용 불가능한 객실입니다.
+            </style.NoAvailableRoom>
           </style.CapacityWrapper>
         )}
         <style.RoomPrice>

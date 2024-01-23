@@ -1,6 +1,11 @@
-import { CAUTION_CONTENTS } from "../reservation.constants";
-import { CautionWrapper, CautionTitle, CautionContents, CautionContent } from "../styles/reservationCaution";
-import { GoDotFill } from "react-icons/go";
+import { CAUTION_CONTENTS } from '../reservation.constants';
+import {
+  CautionWrapper,
+  CautionTitle,
+  CautionContents,
+  CautionContent,
+} from '../styles/reservationCaution';
+import { GoDotFill } from 'react-icons/go';
 
 const ReservationCaution = () => {
   return (

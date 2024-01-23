@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CartPayWrapper = styled.div`
   position: fixed;
@@ -45,7 +45,10 @@ export const CartPayBtn = styled.button<{ $selectedRooms?: number }>`
 
   box-shadow: ${({ theme }) => theme.box.shadow};
   color: white;
-  background-color: ${props => (props.$selectedRooms ? props.theme.color.mainPink : props.theme.color.middleGray)};
+  background-color: ${props =>
+    props.$selectedRooms
+      ? props.theme.color.mainPink
+      : props.theme.color.middleGray};
 
   transition: 0.5s;
 `;

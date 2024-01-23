@@ -6,10 +6,10 @@ import {
   Description,
   Name,
   Price,
-} from "../../styles/rankingArea/rankingAreaItem";
-import { Accommodation } from "../../home.types";
-import { useSetRecoilState } from "recoil";
-import { relatedAccommodationsState } from "../../../../recoil/clickedCategoryAndRegion";
+} from '../../styles/rankingArea/rankingAreaItem';
+import { Accommodation } from '../../home.types';
+import { useSetRecoilState } from 'recoil';
+import { relatedAccommodationsState } from '../../../../recoil/clickedCategoryAndRegion';
 
 interface RankinItemProps {
   index: number;
@@ -18,7 +18,15 @@ interface RankinItemProps {
 
 const RankingAreaItem = ({ index, accommodation }: RankinItemProps) => {
   const setRelatedCateRegion = useSetRecoilState(relatedAccommodationsState);
-  const { id, category, region, name, thumbnailImageUrl, minimumPrice, maximumPrice } = accommodation;
+  const {
+    id,
+    category,
+    region,
+    name,
+    thumbnailImageUrl,
+    minimumPrice,
+    maximumPrice,
+  } = accommodation;
 
   return (
     <RankingItemWrapper

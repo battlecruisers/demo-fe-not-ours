@@ -1,4 +1,4 @@
-import { AccommodationProps } from "../accommodation/accommodation.types";
+import { AccommodationProps } from '../accommodation/accommodation.types';
 
 export interface AccommodationSearchParams {
   startDate: Date;

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import RequirementsPrePay from "./RequirementsPrePay";
-import ReservationPayBtn from "./ReservationPayBtn";
+import { useState } from 'react';
+import RequirementsPrePay from './RequirementsPrePay';
+import ReservationPayBtn from './ReservationPayBtn';
 
 const ReservationPay = () => {
   const [allChecked, setAllChecked] = useState(false);

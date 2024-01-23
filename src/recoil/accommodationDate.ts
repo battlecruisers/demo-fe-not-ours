@@ -1,6 +1,6 @@
-import { atom } from "recoil";
-import { AccommodationDateDefault } from "../feature/accommodation/accommodation.types";
-import { recoilPersist } from "recoil-persist";
+import { atom } from 'recoil';
+import { AccommodationDateDefault } from '../feature/accommodation/accommodation.types';
+import { recoilPersist } from 'recoil-persist';
 
 const { persistAtom } = recoilPersist();
 
@@ -12,7 +12,7 @@ const defaultValue: AccommodationDateDefault = {
 };
 
 export const accommodationDateState = atom({
-  key: "accommodationDate",
+  key: 'accommodationDate',
   default: defaultValue,
   effects_UNSTABLE: [persistAtom],
 });

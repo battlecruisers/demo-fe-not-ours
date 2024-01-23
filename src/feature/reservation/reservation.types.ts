@@ -1,9 +1,9 @@
-import { SetterOrUpdater } from "recoil";
-import { RoomOption, CartData } from "../../types";
+import { SetterOrUpdater } from 'recoil';
+import { RoomOption, CartData } from '../../types';
 
 export interface PostPaymentCartPayload {
   cartId: number;
-  cartProducts: RoomOption["cartProductId"][];
+  cartProducts: RoomOption['cartProductId'][];
 }
 
 export interface PostPaymentCart {
@@ -21,7 +21,7 @@ export interface PostPaymentCartResult {
 export interface RadioDataState {
   [key: number]: {
     cartProductId: number;
-    transportation: "차량" | "도보";
+    transportation: '차량' | '도보';
   };
 }
 

@@ -1,4 +1,4 @@
-import AccommodationRegion from "../accommodationRegion/AccommodationRegion";
+import AccommodationRegion from '../accommodationRegion/AccommodationRegion';
 
 const AccommodationInfoRegion = () => {
   return <AccommodationRegion />;

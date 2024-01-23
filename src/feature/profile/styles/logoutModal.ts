@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { ButtonWrapper } from "../../../components/loginModal/loginModal.styles";
+import styled from 'styled-components';
+import { ButtonWrapper } from '../../../components/loginModal/loginModal.styles';
 
 export const LogoutModal = styled.div`
   margin: 0 auto;

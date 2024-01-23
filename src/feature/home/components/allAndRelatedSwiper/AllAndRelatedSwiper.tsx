@@ -1,12 +1,15 @@
-import AllAndRelatedSwiperItem from "./AllAndRelatedSwiperItem";
-import { HomeInnerContainer, Title } from "../../styles/homeCommon";
-import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import { TitleAndLinkBox, LinkToOthers } from "../../styles/allAndRelatedSwiper";
-import { Accommodation } from "../../home.types";
+import AllAndRelatedSwiperItem from './AllAndRelatedSwiperItem';
+import { HomeInnerContainer, Title } from '../../styles/homeCommon';
+import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import {
+  TitleAndLinkBox,
+  LinkToOthers,
+} from '../../styles/allAndRelatedSwiper';
+import { Accommodation } from '../../home.types';
 
 interface AllAndRelatedProps {
   title: string;
@@ -14,12 +17,20 @@ interface AllAndRelatedProps {
   category?: string;
 }
 
-const AllAndRelatedSwiper = ({ title, accommodations, category }: AllAndRelatedProps) => {
+const AllAndRelatedSwiper = ({
+  title,
+  accommodations,
+  category,
+}: AllAndRelatedProps) => {
   return (
     <HomeInnerContainer>
       <TitleAndLinkBox>
         <Title>{title}</Title>
-        <LinkToOthers to={category ? `/category/${category}` : `/accommodation`}>전체보기 &gt;</LinkToOthers>
+        <LinkToOthers
+          to={category ? `/category/${category}` : `/accommodation`}
+        >
+          전체보기 &gt;
+        </LinkToOthers>
       </TitleAndLinkBox>
       <Swiper
         slidesPerView={2.2}
