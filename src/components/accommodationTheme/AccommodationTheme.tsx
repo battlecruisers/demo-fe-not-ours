@@ -3,6 +3,7 @@ import { useSetRecoilState } from 'recoil';
 import * as style from '../accommodationMember/accommodationMember.styles';
 import { useState } from 'react';
 import { accommodationThemeState } from '../../recoil/accommodationThemeList';
+import { ThemeTypeMap } from './AccommodationThemeType';
 
 interface ThemeProps {
   isThemeShow: boolean;
@@ -17,6 +18,8 @@ const AccommodationTheme = ({
 }: ThemeProps) => {
   const setAccommodationThemeState = useSetRecoilState(accommodationThemeState);
   const [selectedThemeList, setSelectedThemeList] = useState(themeList);
+
+  const themeOptions = ThemeTypeMap;
 
   const handleThemeApply = () => {
     setIsThemeShow(false);
@@ -47,15 +50,15 @@ const AccommodationTheme = ({
           </style.MemberContentInfoBox>
           <style.MemberContentPeopleContainer>
             <ul>
-              {themeOptions.map((option, index) => (
+              {Object.entries(themeOptions).map(([key, value], index) => (
                 <li key={index}>
                   <input
                     type="checkbox"
                     id={`checkbox_${index}`}
-                    checked={selectedThemeList.includes(option)}
-                    onChange={() => handleOptionToggle(option)}
+                    checked={selectedThemeList.includes(key)}
+                    onChange={() => handleOptionToggle(key)}
                   />
-                  <label htmlFor={`checkbox_${index}`}>{option}</label>
+                  <label htmlFor={`checkbox_${index}`}>{value}</label>
                 </li>
               ))}
             </ul>
@@ -70,7 +73,5 @@ const AccommodationTheme = ({
     </style.ThemeLayout>
   );
 };
-
-const themeOptions = ['객실 내 PC', '수영장', '욕조']; // Replace with your actual theme options
 
 export default AccommodationTheme;

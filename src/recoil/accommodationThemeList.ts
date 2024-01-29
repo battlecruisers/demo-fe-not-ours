@@ -5,7 +5,7 @@ import { AccommodationThemeDefault } from '../feature/accommodation/accommodatio
 const { persistAtom } = recoilPersist();
 
 const defaultValue: AccommodationThemeDefault = {
-  theme: [],
+  themeList: [],
 };
 
 export const accommodationThemeState = atom({
