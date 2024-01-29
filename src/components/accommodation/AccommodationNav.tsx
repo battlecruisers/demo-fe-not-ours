@@ -4,6 +4,7 @@ import AccommodationNavCalender from './AccommodationNavCalendar';
 import AccommodationNavMember from './AccommodationNavMember';
 import AccommodationNavRegion from './AccommodationNavRegion';
 import AccommodationNavTheme from './AccommodationNavTheme';
+import AccommodationNavSort from './AccommodationNavSort';
 
 const AccommodationNav = () => {
   const { pathname } = useLocation();
@@ -18,6 +19,7 @@ const AccommodationNav = () => {
       <AccommodationNavMember />
       {entireFlag ? <AccommodationNavRegion /> : null}
       <AccommodationNavTheme />
+      <AccommodationNavSort />
     </style.AccommodationInfoBox>
   );
 };

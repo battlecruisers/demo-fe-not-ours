@@ -32,5 +32,12 @@ export interface AccommodationDateDefault {
  * Theme 추가
  */
 export interface AccommodationThemeDefault {
-  theme: string[];
+  themeList: string[];
+}
+
+/**
+ * Sort 조건 추가
+ */
+export interface AccommodationSortDefault {
+  sort: string;
 }

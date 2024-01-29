@@ -45,6 +45,27 @@ export const ThemeLayout = styled.div<{ $isThemeShow: boolean }>`
     `};
 `;
 
+export const SortLayout = styled.div<{ $isSortShow: boolean }>`
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  position: fixed;
+  top: 100%;
+  left: 0;
+
+  z-index: 2;
+  background-color: ${({ theme }) => theme.color.brightGray};
+
+  ${props =>
+    props.$isSortShow &&
+    css`
+      top: 50px;
+      transition: all 0.5s ease;
+    `};
+`;
 export const MemberContainer = styled.div`
   width: 100%;
   max-width: 750px;

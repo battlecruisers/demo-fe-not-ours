@@ -6,6 +6,7 @@ export interface AccommodationSearchParams {
   guest: number;
   name: string;
   theme: string[];
+  sort: string;
 }
 
 export interface AccommodationSearchResultParams {

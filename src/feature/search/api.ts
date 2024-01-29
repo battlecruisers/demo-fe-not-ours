@@ -8,6 +8,7 @@ export const getAllAccommodationSearchData = async ({
   guest,
   name,
   theme,
+  sort,
 }: AccommodationSearchParams) => {
   console.log(theme);
   const dateString: string[] | undefined = handleDateParam(startDate, endDate);
@@ -18,6 +19,7 @@ export const getAllAccommodationSearchData = async ({
       guest,
       name: name ? name : 'null',
       theme,
+      sort,
     },
   });
   return data;

@@ -9,6 +9,7 @@ export const useAccommodationsSearchQuery = ({
   guest,
   name,
   theme,
+  sort,
 }: AccommodationSearchParams) => {
   console.log('query is called!!');
   console.log(theme);
@@ -21,6 +22,7 @@ export const useAccommodationsSearchQuery = ({
         guest,
         name,
         theme,
+        sort,
       }),
   });
 };
