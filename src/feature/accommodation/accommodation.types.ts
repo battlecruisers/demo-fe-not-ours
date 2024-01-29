@@ -41,3 +41,11 @@ export interface AccommodationThemeDefault {
 export interface AccommodationSortDefault {
   sort: string;
 }
+
+/**
+ * 쿠폰 적용 가능 조건 추가
+ */
+
+export interface AccommodationApplicableDefault {
+  applicable: boolean;
+}
