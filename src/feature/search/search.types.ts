@@ -5,6 +5,7 @@ export interface AccommodationSearchParams {
   endDate: Date;
   guest: number;
   name: string;
+  theme: string[];
 }
 
 export interface AccommodationSearchResultParams {

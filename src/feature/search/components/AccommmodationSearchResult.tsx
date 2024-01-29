@@ -11,18 +11,21 @@ import {
 } from '../../../util/searchSessionValue';
 import { Loading, LoadingWrapper } from '../../../styles/loading';
 import { useNavigate } from 'react-router-dom';
+import { accommodationThemeState } from '../../../recoil/accommodationThemeList';
 
 const AccommmodationSearchResult = ({
   setAccommodations,
 }: AccommodationSetSearchResultParams) => {
   const { startDate, endDate } = useRecoilValue(accommodationDateState);
   const { guest } = useRecoilValue(accommodationMemberState);
+  const { themeList } = useRecoilValue(accommodationThemeState);
   const [inputValue, setInputValue] = useState('');
   const { data, status, isLoading } = useAccommodationsSearchQuery({
     startDate,
     endDate,
     guest,
     name: inputValue,
+    theme: themeList.join(','),
   });
   const navigate = useNavigate();
 

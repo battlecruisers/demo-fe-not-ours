@@ -27,3 +27,10 @@ export interface AccommodationDateDefault {
   startDate: Date;
   endDate: Date;
 }
+
+/**
+ * Theme 추가
+ */
+export interface AccommodationThemeDefault {
+  theme: string[];
+}

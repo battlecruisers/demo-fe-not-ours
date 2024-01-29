@@ -8,11 +8,20 @@ export const useAccommodationsSearchQuery = ({
   endDate,
   guest,
   name,
+  theme,
 }: AccommodationSearchParams) => {
+  console.log('query is called!!');
+  console.log(theme);
   return useQuery({
     queryKey: ['useAccommodationsSearchQuery', useDebounce(name, 400)],
     queryFn: () =>
-      getAllAccommodationSearchData({ startDate, endDate, guest, name }),
+      getAllAccommodationSearchData({
+        startDate,
+        endDate,
+        guest,
+        name,
+        theme,
+      }),
   });
 };
 

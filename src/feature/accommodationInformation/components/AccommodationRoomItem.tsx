@@ -46,7 +46,7 @@ const AccommodationRoomItem = ({
   return (
     <style.Box>
       <style.RoomImgWrapper>
-        {roomOptionImage.mainImageUrls.length > 1 ? (
+        {roomOptionImage.mainImageUrls.length >= 1 ? (
           <Swiper
             style={{ zIndex: 0 }}
             slidesPerView={1}
