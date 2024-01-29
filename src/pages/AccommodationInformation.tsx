@@ -1,6 +1,7 @@
 import AccommodationNav from '../components/accommodation/AccommodationNav.tsx';
 import AccommodationInfo from '../feature/accommodationInformation/components/AccommodationInfo';
 import AccommodationRoomList from '../feature/accommodationInformation/components/AccommodationRoomList';
+import AccommodationReviewList from '../feature/accommodationInformation/components/AccommodationReviewList.tsx';
 import { NavWrapper } from '../feature/accommodationInformation/styles/accommodationInfo.ts';
 
 const AccommodationInformation = () => {
@@ -11,6 +12,7 @@ const AccommodationInformation = () => {
         <AccommodationNav />
       </NavWrapper>
       <AccommodationRoomList />
+      <AccommodationReviewList />
     </>
   );
 };
