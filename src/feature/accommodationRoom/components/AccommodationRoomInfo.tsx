@@ -10,6 +10,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import { RoomInfoProps } from '../RoomInformation.types';
 import { useRecoilValue } from 'recoil';
 import { accommodationMemberState } from '../../../recoil/accommodationMember';
+import AccommodationReviewList from '../../review/components/AccommodationReviewList';
 
 const AccommodationRoomInfo = ({ data }: RoomInfoProps) => {
   const [toast, setToast] = useRecoilState(toastState);
@@ -86,11 +87,8 @@ const AccommodationRoomInfo = ({ data }: RoomInfoProps) => {
           {room.totalPrice.toLocaleString()}원 / {room.stayDuration}박
         </style.RoomPrice>
         <style.DivideLine />
-        <style.RoomStaticDescWrap>
-          <style.StaticDesc>상세 소개</style.StaticDesc>
-          <style.RoomDesc>{room.description}</style.RoomDesc>
-        </style.RoomStaticDescWrap>
       </style.TextInfo>
+      <AccommodationReviewList></AccommodationReviewList>
       {toast.open && <Toast setToast={setToast} />}
     </style.Wrapper>
   );
