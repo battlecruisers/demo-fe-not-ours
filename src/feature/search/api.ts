@@ -10,9 +10,12 @@ export const getAllAccommodationSearchData = async ({
   theme,
   sort,
   applicable,
+  minPrice,
+  maxPrice,
 }: AccommodationSearchParams) => {
   console.log(theme);
   const dateString: string[] | undefined = handleDateParam(startDate, endDate);
+
   const { data } = await instance.get('/accommodations', {
     params: {
       startDate: dateString![0],
@@ -22,6 +25,8 @@ export const getAllAccommodationSearchData = async ({
       theme,
       sort,
       applicable,
+      minPrice,
+      maxPrice,
     },
   });
   return data;

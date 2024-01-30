@@ -49,3 +49,11 @@ export interface AccommodationSortDefault {
 export interface AccommodationApplicableDefault {
   applicable: boolean;
 }
+
+/**
+ * 최대 가격 / 최소 가격 조건 추가
+ */
+
+export interface AccommodationPriceDefault {
+  priceRange: number[];
+}
