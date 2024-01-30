@@ -109,24 +109,8 @@ export const DivideLine = styled.hr`
   width: 100%;
 `;
 
-export const RoomStaticDescWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  margin: 2rem 0;
-
-  font-size: ${({ theme }) => theme.fontSize.xl};
-`;
-
 export const StaticDesc = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.lg};
-`;
-
-export const RoomDesc = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.sm};
-  color: ${({ theme }) => theme.color.darkGray};
-  line-height: 25px;
 `;
 
 export const CapacityWrapper = styled.div`
