@@ -10,6 +10,7 @@ export const useAccommodationsSearchQuery = ({
   name,
   theme,
   sort,
+  applicable,
 }: AccommodationSearchParams) => {
   console.log('query is called!!');
   console.log(theme);
@@ -23,6 +24,7 @@ export const useAccommodationsSearchQuery = ({
         name,
         theme,
         sort,
+        applicable,
       }),
   });
 };
@@ -30,15 +32,15 @@ export const useAccommodationsSearchQuery = ({
 export const useDebounce = (inputValue: string, delay: number) => {
   const [debouncedValue, setDebouncedValue] = useState(inputValue);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedValue(inputValue);
-    }, delay);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setDebouncedValue(inputValue);
+  //   }, delay);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [inputValue, delay]);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [inputValue, delay]);
 
   return debouncedValue;
 };

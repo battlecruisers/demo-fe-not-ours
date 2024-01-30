@@ -7,6 +7,7 @@ export interface AccommodationSearchParams {
   name: string;
   theme: string[];
   sort: string;
+  applicable: boolean;
 }
 
 export interface AccommodationSearchResultParams {

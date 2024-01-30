@@ -13,6 +13,7 @@ import { Loading, LoadingWrapper } from '../../../styles/loading';
 import { useNavigate } from 'react-router-dom';
 import { accommodationThemeState } from '../../../recoil/accommodationThemeList';
 import { accommodationSortState } from '../../../recoil/accommodationSort';
+import { accommodationApplicableState } from '../../../recoil/accommodationApplicable';
 
 const AccommmodationSearchResult = ({
   setAccommodations,
@@ -21,6 +22,7 @@ const AccommmodationSearchResult = ({
   const { guest } = useRecoilValue(accommodationMemberState);
   const { themeList } = useRecoilValue(accommodationThemeState);
   const { sort } = useRecoilValue(accommodationSortState);
+  const { applicable } = useRecoilValue(accommodationApplicableState);
   const [inputValue, setInputValue] = useState('');
   const { data, status, isLoading } = useAccommodationsSearchQuery({
     startDate,
@@ -29,6 +31,7 @@ const AccommmodationSearchResult = ({
     name: inputValue,
     theme: themeList.join(','),
     sort,
+    applicable,
   });
   const navigate = useNavigate();
 
