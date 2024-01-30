@@ -1,4 +1,4 @@
-import * as style from '../styles/accommodationReviewList';
+import * as style from '../../accommodationInformation/styles/accommodationReviewList';
 
 const AccommodationReviewItem = ({
   id,
