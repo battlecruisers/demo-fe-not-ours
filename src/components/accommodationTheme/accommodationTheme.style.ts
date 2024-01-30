@@ -1,7 +1,7 @@
 import { IoClose } from 'react-icons/io5';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-export const MemberLayout = styled.div<{ $isMemberShow: boolean }>`
+export const ThemeLayout = styled.div<{ $isMemberShow: boolean }>`
   width: 100%;
   height: 100%;
 
@@ -23,50 +23,7 @@ export const MemberLayout = styled.div<{ $isMemberShow: boolean }>`
     `};
 `;
 
-export const ThemeLayout = styled.div<{ $isThemeShow: boolean }>`
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-
-  position: fixed;
-  top: 100%;
-  left: 0;
-
-  z-index: 2;
-  background-color: ${({ theme }) => theme.color.brightGray};
-
-  ${props =>
-    props.$isThemeShow &&
-    css`
-      top: 50px;
-      transition: all 0.5s ease;
-    `};
-`;
-
-export const SortLayout = styled.div<{ $isSortShow: boolean }>`
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-
-  position: fixed;
-  top: 100%;
-  left: 0;
-
-  z-index: 2;
-  background-color: ${({ theme }) => theme.color.brightGray};
-
-  ${props =>
-    props.$isSortShow &&
-    css`
-      top: 50px;
-      transition: all 0.5s ease;
-    `};
-`;
-export const MemberContainer = styled.div`
+export const ThemeContainer = styled.div`
   width: 100%;
   max-width: 750px;
   height: calc(100% - 50px);
@@ -80,14 +37,14 @@ export const MemberContainer = styled.div`
   z-index: 3;
 `;
 
-export const MemberContentBox = styled.div`
+export const ThemeContentBox = styled.div`
   padding-top: 30px;
 
   font-size: ${({ theme }) => theme.fontSize.xxs};
   font-weight: 300;
 `;
 
-export const MemberContentInfoBox = styled.div`
+export const ThemeContentInfoBox = styled.div`
   display: flex;
   justify-content: space-between;
 
@@ -96,14 +53,14 @@ export const MemberContentInfoBox = styled.div`
   font-size: ${({ theme }) => theme.fontSize.sm};
 `;
 
-export const MemberContentInfoCloseIcon = styled(IoClose)`
+export const ThemeContentInfoCloseIcon = styled(IoClose)`
   width: 1rem;
   height: 1rem;
 
   cursor: pointer;
 `;
 
-export const MemberContentPeopleContainer = styled.div`
+export const ThemeontentPeopleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -124,7 +81,7 @@ export const MemberContentPeopleContainer = styled.div`
   }
 `;
 
-export const MemberContentPeoplePick = styled.div`
+export const ThemeContentPeoplePick = styled.div`
   display: flex;
   align-items: baseline;
   gap: 1rem;
@@ -140,7 +97,7 @@ export const MemberContentPeoplePick = styled.div`
   }
 `;
 
-export const MemberNav = styled.nav`
+export const ThemeNav = styled.nav`
   width: 100%;
   height: 60px;
 
@@ -157,7 +114,7 @@ export const MemberNav = styled.nav`
   box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.1);
 `;
 
-export const MemberButton = styled.button`
+export const ThemeButton = styled.button`
   width: 90%;
   max-width: 750px;
   height: 75%;
