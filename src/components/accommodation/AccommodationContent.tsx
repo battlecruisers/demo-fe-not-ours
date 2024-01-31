@@ -27,7 +27,7 @@ const AccommodationContent = ({ accommodations }: AccommodationDataProps) => {
     accommodations.length >= (pageNumber + 1) * 10
       ? setAccommodationScrollLists([
           ...accommodationScrollLists,
-          ...accommodations.slice(pageNumber, pageNumber + 10),
+          ...accommodations.slice(pageNumber * 10, pageNumber * 10 + 10),
         ])
       : setAccommodationScrollLists([
           ...accommodationScrollLists,

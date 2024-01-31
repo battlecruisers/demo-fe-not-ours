@@ -11,18 +11,31 @@ import {
 } from '../../../util/searchSessionValue';
 import { Loading, LoadingWrapper } from '../../../styles/loading';
 import { useNavigate } from 'react-router-dom';
+import { accommodationThemeState } from '../../../recoil/accommodationThemeList';
+import { accommodationSortState } from '../../../recoil/accommodationSort';
+import { accommodationApplicableState } from '../../../recoil/accommodationApplicable';
+import { accommodationPriceState } from '../../../recoil/accommodationPrice';
 
 const AccommmodationSearchResult = ({
   setAccommodations,
 }: AccommodationSetSearchResultParams) => {
   const { startDate, endDate } = useRecoilValue(accommodationDateState);
   const { guest } = useRecoilValue(accommodationMemberState);
+  const { themeList } = useRecoilValue(accommodationThemeState);
+  const { sort } = useRecoilValue(accommodationSortState);
+  const { applicable } = useRecoilValue(accommodationApplicableState);
+  const { priceRange } = useRecoilValue(accommodationPriceState);
   const [inputValue, setInputValue] = useState('');
   const { data, status, isLoading } = useAccommodationsSearchQuery({
     startDate,
     endDate,
     guest,
     name: inputValue,
+    theme: themeList.join(','),
+    sort,
+    applicable,
+    minPrice: priceRange![0],
+    maxPrice: priceRange![1],
   });
   const navigate = useNavigate();
 

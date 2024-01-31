@@ -5,6 +5,11 @@ export interface AccommodationSearchParams {
   endDate: Date;
   guest: number;
   name: string;
+  theme: string[];
+  sort: string;
+  applicable: boolean;
+  minPrice: number;
+  maxPrice: number;
 }
 
 export interface AccommodationSearchResultParams {

@@ -31,7 +31,7 @@ const Home = () => {
 
   return (
     <>
-      <FestivalCarousel />
+      {/* <FestivalCarousel /> */}
       <HomeContainer>
         <CategoryArea />
 
