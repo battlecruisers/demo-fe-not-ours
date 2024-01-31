@@ -46,13 +46,13 @@ const Home = () => {
               />
             )}
 
-            {user.accessToken && relatedAccommodations && (
+            {/* {user.accessToken && relatedAccommodations && (
               <AllAndRelatedSwiper
                 title={'최근 본 상품의 연관 상품'}
                 accommodations={relatedAccommodations}
                 category={category}
               />
-            )}
+            )} */}
 
             <RegionArea />
             <RankingArea />
