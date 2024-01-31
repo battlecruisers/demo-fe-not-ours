@@ -17,7 +17,7 @@ const AccommodationInfoPrice = () => {
       >
         <IoPeople />
         <style.AccommodationInfoMemberParagraph>
-          테마 선정
+          가격 설정
         </style.AccommodationInfoMemberParagraph>
       </style.AccommodationInfoMemberBox>
       <AccommodationPrice
