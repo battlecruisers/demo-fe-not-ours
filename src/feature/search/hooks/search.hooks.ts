@@ -14,8 +14,6 @@ export const useAccommodationsSearchQuery = ({
   minPrice,
   maxPrice,
 }: AccommodationSearchParams) => {
-  console.log('query is called!!');
-  console.log(theme);
   return useQuery({
     queryKey: ['useAccommodationsSearchQuery', useDebounce(name, 400)],
     queryFn: () =>
