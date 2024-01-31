@@ -8,6 +8,8 @@ export interface AccommodationSearchParams {
   theme: string[];
   sort: string;
   applicable: boolean;
+  minPrice: number;
+  maxPrice: number;
 }
 
 export interface AccommodationSearchResultParams {

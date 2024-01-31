@@ -11,6 +11,8 @@ export const useAccommodationsSearchQuery = ({
   theme,
   sort,
   applicable,
+  minPrice,
+  maxPrice,
 }: AccommodationSearchParams) => {
   console.log('query is called!!');
   console.log(theme);
@@ -25,6 +27,8 @@ export const useAccommodationsSearchQuery = ({
         theme,
         sort,
         applicable,
+        minPrice,
+        maxPrice,
       }),
   });
 };
