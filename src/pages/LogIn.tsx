@@ -1,12 +1,12 @@
 import { AxiosError } from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import { postLogin } from '../feature/login/login.api';
 import { FormData } from '../feature/login/login.types';
 import * as style from '../feature/login/styles/login';
 import * as commonStyle from '../feature/signUp/styles/signUp';
 import { userState } from '../recoil/userData';
-import { useSetRecoilState } from 'recoil';
 
 const LogIn = () => {
   const setUserState = useSetRecoilState(userState);
@@ -35,15 +35,12 @@ const LogIn = () => {
     try {
       const data = await postLogin(email, password);
 
-      if (data.status === 200) {
+      if (data.status === 'SUCCESS') {
         alert('로그인되었습니다.');
         setUserState({
-          accessToken: data.data.accessToken,
-          refreshToken: data.data.refreshToken,
+          accessToken: 'fake-access-token-for-session-support',
+          refreshToken: 'fake-refresh-token',
         });
-        localStorage.setItem('accessToken', data.data.accessToken);
-        localStorage.setItem('refreshToken', data.data.refreshToken);
-
         navigate('/');
       } else {
         alert('로그인에 실패하였습니다.');

@@ -47,9 +47,6 @@ const Profile = () => {
 
   // 로그아웃
   const handleLogout = async () => {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-
     setUser({
       accessToken: '',
       refreshToken: '',
