@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import * as style from '../styles/accommodationRoomItem';
-import { RoomListProps } from '../accommodationInformation.types';
+import { RoomItemProps } from '../accommodationInformation.types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -17,15 +17,16 @@ const AccommodationRoomItem = ({
   id,
   name,
   roomOptionImage,
-  checkInTime,
-  checkOutTime,
+  startTime,
+  endTime,
   totalPrice,
   accommodationId,
   stayDuration,
   totalRoomCount,
   reservedRoomCount,
   capacity,
-}: RoomListProps) => {
+  roomType,
+}: RoomItemProps) => {
   const availableRoomCount = totalRoomCount - reservedRoomCount;
   const isAvailableDate = availableRoomCount > 0;
 
@@ -70,13 +71,14 @@ const AccommodationRoomItem = ({
           <style.RoomName>
             {name.length >= 16 ? name.slice(0, 15) + '...' : name}
           </style.RoomName>
-          <Link to={`/accommodation/${accommodationId}/room/${id}`}>
+          <Link
+            to={`/accommodation/${accommodationId}/room/${id}?roomType=STAY`}
+          >
             <style.RoomDetailButton>상세보기 {'>'}</style.RoomDetailButton>
           </Link>
         </style.RoomTopWrapper>
         <style.RoomCheckInOut>
-          체크인: {checkInTime.slice(0, 5)} ~ 체크아웃:{' '}
-          {checkOutTime.slice(0, 5)}
+          {/* 체크인: {startTime.slice(0, 5)} ~ 체크아웃: {endTime.slice(0, 5)} */}
         </style.RoomCheckInOut>
         <style.RoomPrice>
           {totalPrice.toLocaleString()}원 / {stayDuration}박
