@@ -8,26 +8,43 @@ export const useAccommodationsSearchQuery = ({
   endDate,
   guest,
   name,
+  theme,
+  sort,
+  applicable,
+  minPrice,
+  maxPrice,
 }: AccommodationSearchParams) => {
+  console.log('query is called!!');
+  console.log(theme);
   return useQuery({
     queryKey: ['useAccommodationsSearchQuery', useDebounce(name, 400)],
     queryFn: () =>
-      getAllAccommodationSearchData({ startDate, endDate, guest, name }),
+      getAllAccommodationSearchData({
+        startDate,
+        endDate,
+        guest,
+        name,
+        theme,
+        sort,
+        applicable,
+        minPrice,
+        maxPrice,
+      }),
   });
 };
 
 export const useDebounce = (inputValue: string, delay: number) => {
   const [debouncedValue, setDebouncedValue] = useState(inputValue);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedValue(inputValue);
-    }, delay);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setDebouncedValue(inputValue);
+  //   }, delay);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [inputValue, delay]);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [inputValue, delay]);
 
   return debouncedValue;
 };
