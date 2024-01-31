@@ -3,8 +3,12 @@ import * as style from '../../feature/accommodation/styles/accommodationInfo';
 import AccommodationNavCalender from './AccommodationNavCalendar';
 import AccommodationNavMember from './AccommodationNavMember';
 import AccommodationNavRegion from './AccommodationNavRegion';
+import AccommodationNavTheme from './AccommodationNavTheme';
+import AccommodationNavSort from './AccommodationNavSort';
+import AccommodationInfoApplicable from './AccommodationApplicable';
+import AccommodationNavPrice from './AccommodationNavPrice';
 
-const AccommodationNav = () => {
+const AccommodationSearchNav = () => {
   const { pathname } = useLocation();
   const entireFlag =
     pathname.split('/').length < 3 &&
@@ -16,8 +20,12 @@ const AccommodationNav = () => {
       <AccommodationNavCalender />
       <AccommodationNavMember />
       {entireFlag ? <AccommodationNavRegion /> : null}
+      <AccommodationNavPrice />
+      <AccommodationNavTheme />
+      <AccommodationNavSort />
+      <AccommodationInfoApplicable />
     </style.AccommodationInfoBox>
   );
 };
 
-export default AccommodationNav;
+export default AccommodationSearchNav;
