@@ -4,7 +4,7 @@ import getLocalStorage from '../util/getLocalStorage';
 const { accessToken } = getLocalStorage();
 
 const authInstance = axios.create({
-  baseURL: 'https://ybe-mini.site/',
+  baseURL: 'http://localhost:8080',
   headers: {
     'Content-Type': 'application/json',
     Authorization: accessToken,

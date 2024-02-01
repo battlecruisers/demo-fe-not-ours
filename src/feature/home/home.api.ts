@@ -2,11 +2,9 @@ import dayjs from 'dayjs';
 import instance from '../../api/instance';
 import {
   AccommodationResponse,
-  RelatedResponse,
   FestivalResponse,
   RegionList,
   RegionListResponse,
-  RelatedProps,
 } from './home.types';
 
 const dayJS: dayjs.Dayjs = dayjs();
@@ -40,9 +38,7 @@ export const getAllAccommodations = async () => {
   return response.data.data.content;
 };
 
-export const getRelatedAccommodations = async (
-  relatedRequest: RelatedProps,
-) => {
+export const getRelatedAccommodations = async () => {
   // try {
   //   const { category, region } = relatedRequest;
   //   const response: RelatedResponse = await instance.get<AccommodationResponse>(

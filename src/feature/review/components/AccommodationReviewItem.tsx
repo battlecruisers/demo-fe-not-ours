@@ -1,14 +1,14 @@
 import * as style from '../../accommodationInformation/styles/accommodationReviewList';
 
 const AccommodationReviewItem = ({
-  id,
+  // id,
   totalRate,
   creationDate,
   roomName,
   writer,
   content,
-  roomImageUrls,
-}: ReviewProps) => {
+} // roomImageUrls,
+: ReviewProps) => {
   const date = new Date(creationDate);
   return (
     <style.SlideItemWrapper>
