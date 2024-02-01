@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 import { accommodationApplicableState } from '../../recoil/accommodationApplicable';
 import styled from 'styled-components';
@@ -34,7 +34,7 @@ const AccommodationInfoApplicable = () => {
     gap: 0.5rem;
 
     // 글자색 변경
-    color: ${({ $isApplicable, theme }) => theme.color.mainPink};
+    color: ${({ theme }) => theme.color.mainPink};
     cursor: pointer;
 
     // 배경색 변경
