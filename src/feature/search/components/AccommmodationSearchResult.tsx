@@ -3,12 +3,8 @@ import { useRecoilValue } from 'recoil';
 import { accommodationDateState } from '../../../recoil/accommodationDate';
 import { accommodationMemberState } from '../../../recoil/accommodationMember';
 import { useAccommodationsSearchQuery } from '../hooks/search.hooks';
-import { useState, KeyboardEvent, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { AccommodationSetSearchResultParams } from '../search.types';
-import {
-  getSessionValue,
-  setSessionValue,
-} from '../../../util/searchSessionValue';
 import { Loading, LoadingWrapper } from '../../../styles/loading';
 import { useNavigate } from 'react-router-dom';
 import { accommodationThemeState } from '../../../recoil/accommodationThemeList';
@@ -91,18 +87,18 @@ const AccommmodationSearchResult = ({
     }
   }, [status]);
 
-  const handleEnterpress = async (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      if (!inputValue) return;
+  // const handleEnterpress = async (e: KeyboardEvent<HTMLInputElement>) => {
+  //   if (e.key === 'Enter') {
+  //     if (!inputValue) return;
 
-      if (data?.data?.content && status === 'success') {
-        setSessionValue('searchResult', inputValue);
-        setSessionValue('accommodations', data?.data.content);
-        setSessionValue('historyIdx', window.history.state.idx);
-        setAccommodations(data?.data?.content);
-      }
-    }
-  };
+  //     if (data?.data?.content && status === 'success') {
+  //       setSessionValue('searchResult', inputValue);
+  //       setSessionValue('accommodations', data?.data.content);
+  //       setSessionValue('historyIdx', window.history.state.idx);
+  //       setAccommodations(data?.data?.content);
+  //     }
+  //   }
+  // };
 
   const handleInputValue = () => {
     setInputValue('');
