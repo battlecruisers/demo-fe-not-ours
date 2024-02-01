@@ -1,19 +1,19 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import SignUp from './pages/SignUp';
-import LogIn from './pages/LogIn';
-import Search from './pages/Search';
-import Cart from './pages/Cart';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './components/layout/Layout';
 import Accommodation from './pages/Accommodation';
+import AccommodationInformation from './pages/AccommodationInformation';
+import AccommodationRoom from './pages/AccommodationRoom';
+import Cart from './pages/Cart';
+import Category from './pages/Category';
+import Home from './pages/Home';
+import LogIn from './pages/LogIn';
+import PageNotFound from './pages/PageNotFound';
+import Profile from './pages/Profile';
 import Reservation from './pages/Reservation';
 import ReservationCheck from './pages/ReservationCheck';
 import ReservationList from './pages/ReservationList';
-import Profile from './pages/Profile';
-import Layout from './components/layout/Layout';
-import AccommodationRoom from './pages/AccommodationRoom';
-import AccommodationInformation from './pages/AccommodationInformation';
-import PageNotFound from './pages/PageNotFound';
-import Category from './pages/Category';
+import Search from './pages/Search';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (

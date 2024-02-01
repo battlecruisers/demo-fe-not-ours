@@ -13,6 +13,7 @@ import * as style from '../feature/reservation/styles/reservation';
 import axios from 'axios';
 import { userState } from '../recoil/userData';
 import LoginModal from '../components/loginModal/LoginModal';
+import Coupon from './Coupon';
 
 const Reservation = () => {
   const setUser = useSetRecoilState(userState);
@@ -23,6 +24,18 @@ const Reservation = () => {
   const postPaymentCartPayload: PostPaymentCartPayload = { ...location.state };
   const { mutateAsync: postPaymentCart } = usePostPaymentCart();
   const [paymentData, setPaymentData] = useRecoilState(paymentDataState);
+
+  //couponId 관리
+  const [selectedCouponId, setSelectedCouponId] = useState<number>(-1);
+
+  const handleCouponSelect = (id: number) => {
+    setSelectedCouponId(id);
+    console.log(selectedCouponId);
+  };
+
+  //couponPage 조회 관리
+  const [isCouponShow, setIsCouponShow] = useState<boolean>(false);
+
   const setRadioData = useSetRecoilState(radioDataState);
   const navigation = useNavigate();
 
@@ -78,6 +91,11 @@ const Reservation = () => {
     <>
       <style.ReservationWrapper>
         <ReservationSummary />
+        <Coupon
+          onCouponSelect={handleCouponSelect}
+          isCouponShow={isCouponShow}
+          setIsCouponShow={setIsCouponShow}
+        />
         <GuestInformation />
         <ReservationPay />
       </style.ReservationWrapper>
