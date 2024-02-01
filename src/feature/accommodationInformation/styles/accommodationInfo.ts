@@ -18,7 +18,7 @@ export const ImgWrapper = styled.div`
   height: 500px;
 `;
 
-export const AccomodationImg = styled.img`
+export const AccommodationImg = styled.img`
   width: 100%;
   height: 100%;
 

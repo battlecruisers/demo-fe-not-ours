@@ -59,7 +59,7 @@ const AccommodationInfo = () => {
   ) : (
     <style.Wrapper>
       <style.ImgWrapper>
-        <style.AccomodationImg src={data.data.thumbnailImageUrl} />
+        <style.AccommodationImg src={data.data.thumbnailImageUrl} />
       </style.ImgWrapper>
       <style.TextInfo>
         <style.AccommodationName>{data.data.name}</style.AccommodationName>

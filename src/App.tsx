@@ -14,6 +14,7 @@ import AccommodationRoom from './pages/AccommodationRoom';
 import AccommodationInformation from './pages/AccommodationInformation';
 import PageNotFound from './pages/PageNotFound';
 import Category from './pages/Category';
+import Review from './pages/Review';
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
         <Route
           path="/accommodation/:accommodationId/room/:roomOptionId"
           element={<AccommodationRoom />}
+        />
+        <Route
+          path="/accommodation/:accommodationId/review"
+          element={<Review />}
         />
         <Route path="/category/:id" element={<Category />} />
         <Route path="/reservation" element={<Reservation />} />

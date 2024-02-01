@@ -1,6 +1,7 @@
-import * as style from '../../accommodationInformation/styles/accommodationReviewList';
+import Slider from 'react-slick';
+import * as style from '../style/ReviewItem';
 
-const AccommodationReviewItem = ({
+const ReviewItem = ({
   id,
   totalRate,
   creationDate,
@@ -9,9 +10,19 @@ const AccommodationReviewItem = ({
   content,
   roomImageUrls,
 }: ReviewProps) => {
+  const settings = {
+    className: 'center',
+    infinite: false,
+    centerPadding: '50px',
+    slidesToShow: 3.4,
+    swipeToSlide: true,
+    arrows: false,
+  };
+
   const date = new Date(creationDate);
+
   return (
-    <style.SlideItemWrapper>
+    <style.ReviewWrapper>
       <style.ReviewBox>
         <style.TotalRate>{RateStar(totalRate)}</style.TotalRate>
         <style.TextInfo>
@@ -23,12 +34,18 @@ const AccommodationReviewItem = ({
         <h4 style={{ fontSize: '15px' }}>{roomName}</h4>
         <style.ContentWrapper>
           <style.ReviewContent>{content}</style.ReviewContent>
-          {roomImageUrls.length === 0 ? null : (
-            <style.RoomImage src={`${roomImageUrls[0]}`}></style.RoomImage>
-          )}
+          <Slider {...settings}>
+            {roomImageUrls.map((target, index) => (
+              <style.SlideItemWrapper>
+                <style.RoomImage
+                  src={`${roomImageUrls[index]}`}
+                ></style.RoomImage>
+              </style.SlideItemWrapper>
+            ))}
+          </Slider>
         </style.ContentWrapper>
       </style.ReviewBox>
-    </style.SlideItemWrapper>
+    </style.ReviewWrapper>
   );
 };
 
@@ -86,4 +103,4 @@ const RateStar = (totalRate: number) => {
   return arr;
 };
 
-export default AccommodationReviewItem;
+export default ReviewItem;
