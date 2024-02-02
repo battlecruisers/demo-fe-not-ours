@@ -34,7 +34,7 @@ function App() {
           element={<AccommodationRoom />}
         />
         <Route path="/category/:id" element={<Category />} />
-        <Route path="/reservations" element={<Reservation />} />
+        <Route path="/reservation" element={<Reservation />} />
         <Route path="/reservation-check" element={<ReservationCheck />} />
         <Route path="/reservation-list" element={<ReservationList />} />
         <Route path="/profile" element={<Profile />} />

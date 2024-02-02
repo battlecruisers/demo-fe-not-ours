@@ -64,6 +64,7 @@ const BottomBar = ({ data }: RoomInfoProps) => {
             <ReservationButton
               id={room.id}
               guest={guest}
+              totalPrice={-1}
               reservationStartDate={reservationStartDate}
               reservationEndDate={reservationEndDate}
               stayDuration={room.stayDuration}

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 // interface Coupon {
@@ -11,20 +12,10 @@ import styled from 'styled-components';
 // }
 
 interface Coupon {
-  description: string;
-  discountLimit: number;
-  discountPrice: number;
-  discountRate: number;
   id: number;
-  isRegistered: boolean;
-  isValid: boolean;
-  minimumPrice: number;
   name: string;
-  region: string;
-  roomId: number;
-  roomType: string;
-  validityStartDate: Date;
-  validityEndDate: Date;
+  discountRate: number;
+  discountPrice: number;
 }
 
 const Heading1 = styled.h1`
@@ -85,27 +76,35 @@ const CouponTR = styled.tr`
 `;
 
 interface CouponProps {
+  roomId: number;
   isCouponShow: boolean;
   setIsCouponShow: React.Dispatch<React.SetStateAction<boolean>>;
   onCouponSelect: (id: number) => void;
 }
 
-const Coupon = ({ setIsCouponShow, onCouponSelect }: CouponProps) => {
-  // const navigate = useNavigate();
+const Coupon = ({
+  roomId,
+  isCouponShow,
+  setIsCouponShow,
+  onCouponSelect,
+}: CouponProps) => {
+  const navigate = useNavigate();
 
   //TODO: 멤버 쿠폰으로 변경
-  const url = 'http://localhost:8080/coupons';
+  // console.log(roomId);
+  let url = 'http://localhost:8080/member-coupons/' + roomId;
+  // console.log(url);
 
   const [couponList, setCouponList] = useState<Coupon[]>([]);
   const [selectedCoupon, setSelectedCoupon] = useState<number>(-1);
 
   const handleOptionToggle = (option: number) => {
+    console.log(option);
     setSelectedCoupon(option);
-    console.log(selectedCoupon);
+    onCouponSelect(option);
   };
 
   const handleCouponSelect = () => {
-    onCouponSelect(selectedCoupon);
     setIsCouponShow(false);
   };
 
@@ -124,24 +123,6 @@ const Coupon = ({ setIsCouponShow, onCouponSelect }: CouponProps) => {
     fetchData();
     console.log(couponList);
   }, []); // 컴포넌트가 마운트될 때만 실행
-
-  //   const coupons = [
-  //     {
-  //       id: 1,
-  //       name: '1월 특가 쿠폰',
-  //       discountRate: '10%',
-  //       discountAmount: '2000',
-  //       expirationDate: '2024-01-25',
-  //     },
-  //     {
-  //       id: 2,
-  //       name: '2월 특가 쿠폰',
-  //       discountRate: '10%',
-  //       discountAmount: '2000',
-  //       expirationDate: '2024-01-25',
-  //     },
-  //     // Add more coupons as needed
-  //   ];
 
   return (
     <>
@@ -189,7 +170,6 @@ const Coupon = ({ setIsCouponShow, onCouponSelect }: CouponProps) => {
           ))}
         </tbody>
       </CouponTable>
-      <button onClick={() => handleCouponSelect()}>쿠폰 적용</button>
     </>
   );
 };
