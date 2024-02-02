@@ -5,6 +5,7 @@ import AccommodationInformation from './pages/AccommodationInformation';
 import AccommodationRoom from './pages/AccommodationRoom';
 import Cart from './pages/Cart';
 import Category from './pages/Category';
+import Coupon from './pages/Coupon';
 import Home from './pages/Home';
 import LogIn from './pages/LogIn';
 import PageNotFound from './pages/PageNotFound';
@@ -14,6 +15,7 @@ import ReservationCheck from './pages/ReservationCheck';
 import ReservationList from './pages/ReservationList';
 import Search from './pages/Search';
 import SignUp from './pages/SignUp';
+import CouponRegister from './pages/CouponRegister';
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/search" element={<Search />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/coupon" element={<CouponRegister />} />
         <Route path="/accommodation" element={<Accommodation />} />
         <Route
           path="/accommodation/:accommodationId"
