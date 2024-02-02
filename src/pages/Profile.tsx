@@ -109,6 +109,7 @@ const Profile = () => {
           </div>
           <div onClick={() => navigate('/reservation-list')}>예약 내역</div>
           <div onClick={() => navigate('/cart')}>장바구니</div>
+          <div onClick={() => navigate('/coupon')}>쿠폰등록</div>
         </style.List>
       </style.Div>
 
