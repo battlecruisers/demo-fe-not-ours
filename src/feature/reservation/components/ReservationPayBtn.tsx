@@ -82,6 +82,39 @@ const ReservationPayBtn = ({
     }
   };
 
+  // console.log(roomId);
+  console.log(memberCouponId);
+  // console.log(reservationStartDate);
+  // console.log(reservationEndDate);
+  // console.log(allChecked);
+
+  const handleButtonClick = async () => {
+    try {
+      const response = await axios.post(
+        'http://localhost:8080/payment/instant',
+        {
+          roomOptionId: roomId,
+          memberCouponId: memberCouponId === -1 ? null : memberCouponId,
+          reservationStartDate: reservationStartDate,
+          reservationEndDate: reservationEndDate,
+        },
+        {
+          withCredentials: true,
+        },
+      );
+      const data = response.data.data;
+      console.log(data); // 응답 데이터 확인
+
+      navigate('/reservation-check', {
+        state: {
+          cartId: data.cartId,
+        },
+      });
+    } catch (error) {
+      console.error('Error sending POST request:', error);
+    }
+  };
+
   return (
     <>
       {allChecked ? (
