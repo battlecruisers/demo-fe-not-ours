@@ -79,7 +79,6 @@ const CartRoom = ({ accommodations, setIsSelectAll }: CartRoomProps) => {
                 ></label>
               </commonStyle.Checkbox>
 
-              <RoomList roomOption={roomOption} />
               <style.CartCancelBtn onClick={() => openModal([roomOption])} />
             </style.RoomOptionWrapper>
           ))}

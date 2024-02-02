@@ -11,8 +11,26 @@ import { CartData } from '../../../types';
 import * as style from '../styles/reservationPayBtn';
 import axios from 'axios';
 import { userState } from '../../../recoil/userData';
+import { ReservationPayProps } from './ReservationPay';
+import { useState } from 'react';
 
-const ReservationPayBtn = ({ allChecked }: { allChecked: boolean }) => {
+interface ReservationPayPropsWithCheck {
+  roomId: number;
+  memberCouponId?: number;
+  reservationStartDate: Date;
+  reservationEndDate: Date;
+  allChecked: boolean;
+}
+
+const ReservationPayBtn = ({
+  roomId,
+  memberCouponId,
+  reservationStartDate,
+  reservationEndDate,
+  allChecked,
+}: ReservationPayPropsWithCheck) => {
+  const navigate = useNavigate();
+
   const setUser = useSetRecoilState(userState);
 
   const radioData = useRecoilValue(radioDataState);
@@ -64,10 +82,42 @@ const ReservationPayBtn = ({ allChecked }: { allChecked: boolean }) => {
     }
   };
 
+  // console.log(roomId);
+  console.log(memberCouponId);
+  // console.log(reservationStartDate);
+  // console.log(reservationEndDate);
+  // console.log(allChecked);
+
+  const handleButtonClick = async () => {
+    try {
+      const response = await axios.post(
+        'http://localhost:8080/payment/instant',
+        {
+          roomOptionId: roomId,
+          memberCouponId: memberCouponId === -1 ? null : memberCouponId,
+          reservationStartDate: reservationStartDate,
+          reservationEndDate: reservationEndDate,
+        },
+        {
+          withCredentials: true,
+        },
+      );
+      const data = response.data.data;
+      console.log(data); // 응답 데이터 확인
+
+      navigate('/reservation-check', {
+        state: {
+          cartId: data.cartId,
+        },
+      });
+    } catch (error) {
+      console.error('Error sending POST request:', error);
+    }
+  };
+
   return (
     <>
-      {allChecked &&
-      ReservationInfo.cartProducts.length === radioDataArray.length ? (
+      {allChecked ? (
         <style.PrePayCondition></style.PrePayCondition>
       ) : (
         <style.PrePayCondition>
@@ -75,16 +125,10 @@ const ReservationPayBtn = ({ allChecked }: { allChecked: boolean }) => {
         </style.PrePayCondition>
       )}
       <style.PayBtn
-        $allChecked={
-          allChecked &&
-          ReservationInfo.cartProducts.length === radioDataArray.length
-        }
-        onClick={
-          allChecked &&
-          ReservationInfo.cartProducts.length === radioDataArray.length
-            ? handlePurchase
-            : undefined
-        }
+        $allChecked={allChecked}
+        onClick={() => {
+          handleButtonClick();
+        }}
       >
         결제하기
       </style.PayBtn>

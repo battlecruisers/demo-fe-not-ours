@@ -52,6 +52,7 @@ export interface ReservationButtonProps {
   text: string;
   $isWide?: boolean;
   id: number;
+  totalPrice?: number;
   guest: number;
   reservationStartDate: string;
   reservationEndDate: string;

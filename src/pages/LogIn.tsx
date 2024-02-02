@@ -35,16 +35,12 @@ const LogIn = () => {
     try {
       const data = await postLogin(email, password);
 
-      if (data.status === 'SUCCESS') {
-        alert('로그인되었습니다.');
-        setUserState({
-          accessToken: 'fake-access-token-for-session-support',
-          refreshToken: 'fake-refresh-token',
-        });
-        navigate('/');
-      } else {
-        alert('로그인에 실패하였습니다.');
-      }
+      alert('로그인되었습니다.');
+      setUserState({
+        accessToken: 'fake-access-token-for-session-support',
+        refreshToken: 'fake-refresh-token',
+      });
+      navigate('/');
     } catch (error) {
       const axiosError = error as AxiosError;
 
