@@ -5,6 +5,7 @@ import AccommodationInformation from './pages/AccommodationInformation';
 import AccommodationRoom from './pages/AccommodationRoom';
 import Cart from './pages/Cart';
 import Category from './pages/Category';
+import Coupon from './pages/Coupon';
 import Home from './pages/Home';
 import LogIn from './pages/LogIn';
 import PageNotFound from './pages/PageNotFound';
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/search" element={<Search />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/coupon" element={<Coupon />} />
         <Route path="/accommodation" element={<Accommodation />} />
         <Route
           path="/accommodation/:accommodationId"
