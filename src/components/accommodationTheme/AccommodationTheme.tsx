@@ -30,11 +30,11 @@ const AccommodationTheme = ({
     const isSelected = selectedThemeList.includes(option);
 
     if (isSelected) {
-      setSelectedThemeList(prevOptions =>
-        prevOptions.filter(prevOption => prevOption !== option),
+      setSelectedThemeList((prevOptions) =>
+        prevOptions.filter((prevOption) => prevOption !== option),
       );
     } else {
-      setSelectedThemeList(prevOptions => [...prevOptions, option]);
+      setSelectedThemeList((prevOptions) => [...prevOptions, option]);
     }
   };
 
@@ -45,7 +45,7 @@ const AccommodationTheme = ({
           <style.MemberContentInfoBox>
             <span>검색 조건에 추가하고 싶은 테마를 선택해주세요.</span>
             <style.MemberContentInfoCloseIcon
-              onClick={() => setIsThemeShow(prev => !prev)}
+              onClick={() => setIsThemeShow((prev) => !prev)}
             />
           </style.MemberContentInfoBox>
           <style.MemberContentPeopleContainer>

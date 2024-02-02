@@ -34,7 +34,7 @@ const AccommodationContent = ({ accommodations }: AccommodationDataProps) => {
           ...accommodations.slice(pageNumber * 10, accommodations.length),
         ]);
 
-    setPageNumber(prev => prev + 1);
+    setPageNumber((prev) => prev + 1);
   };
 
   return (

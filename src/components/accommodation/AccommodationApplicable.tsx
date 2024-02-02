@@ -13,7 +13,7 @@ const AccommodationInfoApplicable = () => {
   );
 
   const handleApplicableApply = () => {
-    setIsApplicable(prev => !prev);
+    setIsApplicable((prev) => !prev);
     setAccommodationApplicableState({ applicable: isApplicable });
   };
 

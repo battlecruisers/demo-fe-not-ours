@@ -15,7 +15,7 @@ export const ThemeLayout = styled.div<{ $isMemberShow: boolean }>`
   z-index: 2;
   background-color: ${({ theme }) => theme.color.brightGray};
 
-  ${props =>
+  ${(props) =>
     props.$isMemberShow &&
     css`
       top: 50px;

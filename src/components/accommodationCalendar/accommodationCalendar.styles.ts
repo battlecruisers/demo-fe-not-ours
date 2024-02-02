@@ -17,7 +17,7 @@ export const CalendarLayout = styled.div<{ $isCalendarShow: boolean }>`
   z-index: 2;
   background-color: ${({ theme }) => theme.color.brightGray};
 
-  ${props =>
+  ${(props) =>
     props.$isCalendarShow &&
     css`
       top: 50px;

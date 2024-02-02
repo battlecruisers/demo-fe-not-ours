@@ -34,7 +34,7 @@ const AccommodationCalendar = ({
   };
 
   const handleDateChange = () => {
-    setIsCalendarShow(prev => !prev);
+    setIsCalendarShow((prev) => !prev);
     setAccommodationDateState({
       startDate: startTime,
       endDate: endTime,
@@ -59,7 +59,7 @@ const AccommodationCalendar = ({
           : 최대 14일까지 가능
         </div>
         <style.CalenderCloseIcon
-          onClick={() => setIsCalendarShow(prev => !prev)}
+          onClick={() => setIsCalendarShow((prev) => !prev)}
         />
       </style.CalendarDateInfoTextBox>
       <style.CalendarDateInfoBox>

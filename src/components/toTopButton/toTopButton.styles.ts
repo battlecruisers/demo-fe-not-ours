@@ -18,7 +18,7 @@ const StyledToTopButton = styled.div<StyledToTopButtonProps>`
   position: fixed;
   z-index: 10;
   right: calc(50% - 22rem);
-  bottom: ${props => (props.$isVisible ? props.$pathBottom : '-50px')};
+  bottom: ${(props) => (props.$isVisible ? props.$pathBottom : '-50px')};
 
   display: flex;
   justify-content: center;
@@ -44,7 +44,7 @@ const StyledToTopButton = styled.div<StyledToTopButtonProps>`
     }
     to {
       transform: translateY(0%);
-      bottom: ${props => props.$pathBottom};
+      bottom: ${(props) => props.$pathBottom};
     }
   }
 `;
