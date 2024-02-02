@@ -2,11 +2,9 @@ import dayjs from 'dayjs';
 import instance from '../../api/instance';
 import {
   AccommodationResponse,
-  RelatedResponse,
   FestivalResponse,
   RegionList,
   RegionListResponse,
-  RelatedProps,
 } from './home.types';
 
 const dayJS: dayjs.Dayjs = dayjs();
@@ -40,22 +38,20 @@ export const getAllAccommodations = async () => {
   return response.data.data.content;
 };
 
-export const getRelatedAccommodations = async (
-  relatedRequest: RelatedProps,
-) => {
-  try {
-    const { category, region } = relatedRequest;
-    const response: RelatedResponse = await instance.get<AccommodationResponse>(
-      `/accommodations/related?category=${category}&region=${region}`,
-      {
-        params: requiredParams,
-      },
-    );
-    return response.data.data.content;
-  } catch (error) {
-    alert('잘못된 접근입니다. 다시 시도해 주세요.');
-    console.error(error);
-  }
+export const getRelatedAccommodations = async () => {
+  // try {
+  //   const { category, region } = relatedRequest;
+  //   const response: RelatedResponse = await instance.get<AccommodationResponse>(
+  //     `/accommodations/related?category=${category}&region=${region}`,
+  //     {
+  //       params: requiredParams,
+  //     },
+  //   );
+  //   return response.data.data.content;
+  // } catch (error) {
+  //   alert('잘못된 접근입니다. 다시 시도해 주세요.');
+  //   console.error(error);
+  // }
 };
 
 export const getRegionAccommodations = async (region: string) => {

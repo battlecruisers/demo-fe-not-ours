@@ -8,7 +8,8 @@ const AccommodationReviewItem = ({
   writer,
   content,
   roomImageUrls,
-}: ReviewProps) => {
+} 
+: ReviewProps) => {
   const date = new Date(creationDate);
   return (
     <style.SlideItemWrapper>

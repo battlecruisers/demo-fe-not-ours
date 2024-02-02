@@ -11,10 +11,9 @@ const ReviewItem = ({
   roomImageUrls,
 }: ReviewProps) => {
   const settings = {
-    className: 'center',
     infinite: false,
     centerPadding: '50px',
-    slidesToShow: 3.4,
+    slidesToShow: roomImageUrls.length >= 4 ? 3.4 : roomImageUrls.length,
     swipeToSlide: true,
     arrows: false,
   };

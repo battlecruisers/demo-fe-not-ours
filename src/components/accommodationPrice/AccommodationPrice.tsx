@@ -23,8 +23,9 @@ const AccommodationPrice = ({
   const [selectedPriceRange, setSelectedPriceRange] =
     useState<number[]>(priceRange);
 
-  const handleChange = (event: Event, newValue: number | number[]) => {
+  const handleChange = (event: any, newValue: number | number[]) => {
     setSelectedPriceRange(newValue as number[]);
+    console.log(event);
   };
 
   const handlePriceApply = () => {

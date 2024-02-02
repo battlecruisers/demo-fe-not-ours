@@ -1,5 +1,5 @@
 import { IoClose } from 'react-icons/io5';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ThemeLayout = styled.div<{ $isMemberShow: boolean }>`
   width: 100%;

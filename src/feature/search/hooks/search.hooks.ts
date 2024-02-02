@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getAllAccommodationSearchData } from '../api';
 import { AccommodationSearchParams } from '../search.types';
-import { useEffect, useState } from 'react';
 
 export const useAccommodationsSearchQuery = ({
   startDate,
@@ -14,10 +13,8 @@ export const useAccommodationsSearchQuery = ({
   minPrice,
   maxPrice,
 }: AccommodationSearchParams) => {
-  console.log('query is called!!');
-  console.log(theme);
   return useQuery({
-    queryKey: ['useAccommodationsSearchQuery', useDebounce(name, 400)],
+    queryKey: ['useAccommodationsSearchQuery'],
     queryFn: () =>
       getAllAccommodationSearchData({
         startDate,
@@ -33,18 +30,18 @@ export const useAccommodationsSearchQuery = ({
   });
 };
 
-export const useDebounce = (inputValue: string, delay: number) => {
-  const [debouncedValue, setDebouncedValue] = useState(inputValue);
+// export const useDebounce = (inputValue: string) => {
+//   const [debouncedValue, setDebouncedValue] = useState(inputValue);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setDebouncedValue(inputValue);
-  //   }, delay);
+//   // useEffect(() => {
+//   //   const timer = setTimeout(() => {
+//   //     setDebouncedValue(inputValue);
+//   //   }, delay);
 
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, [inputValue, delay]);
+//   //   return () => {
+//   //     clearTimeout(timer);
+//   //   };
+//   // }, [inputValue, delay]);
 
-  return debouncedValue;
-};
+//   return debouncedValue;
+// };

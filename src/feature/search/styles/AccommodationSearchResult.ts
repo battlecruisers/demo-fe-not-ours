@@ -43,3 +43,15 @@ export const AccommodationSearchInput = styled.input`
     outline: none;
   }
 `;
+
+export const SearchButton = styled.button`
+  width: 10%;
+  max-width: 750px;
+  height: 150%;
+
+  border: none;
+  background-color: ${({ theme }) => theme.color.mainPink};
+  color: ${({ theme }) => theme.color.white};
+  font-size: ${({ theme }) => theme.fontSize.sm};
+  border-radius: 5px;
+`;

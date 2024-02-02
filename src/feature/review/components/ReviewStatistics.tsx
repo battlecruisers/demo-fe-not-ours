@@ -26,7 +26,7 @@ const ReviewStatistics = ({
             ></path>
           </svg>
           <style.TotalRateBox>
-            <style.TotalRate>{totalRateAvg}</style.TotalRate>
+            <style.TotalRate>{totalRateAvg.toFixed(1)}</style.TotalRate>
             /5
           </style.TotalRateBox>
         </style.TotalRateCont>
