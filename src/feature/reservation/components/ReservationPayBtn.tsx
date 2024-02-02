@@ -92,12 +92,16 @@ const ReservationPayBtn = ({
     try {
       const response = await axios.post(
         'http://localhost:8080/payment/instant',
+        
         {
           roomOptionId: roomId,
           memberCouponId: memberCouponId === -1 ? null : memberCouponId,
           reservationStartDate: reservationStartDate,
           reservationEndDate: reservationEndDate,
         },
+        {
+          withCredentials: true
+        }
       );
       const data = response.data.data;
       console.log(data); // 응답 데이터 확인
