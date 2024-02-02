@@ -27,11 +27,11 @@ const SearchConditionSelectors = ({
     setPhotoOnly(current => !current);
   };
 
-  const selectSort = event => {
+  const selectSort = (event: any) => {
     setSort(event.target.value);
   };
 
-  const selectRoom = event => {
+  const selectRoom = (event: any) => {
     setRoomOptionId(event.target.value);
   };
 
@@ -40,7 +40,7 @@ const SearchConditionSelectors = ({
   }, []);
 
   useEffect(() => {
-    onChange(current => {
+    onChange((current) => {
       const newData = { ...current };
       newData.hasPhoto = photoOnly;
       return newData;
