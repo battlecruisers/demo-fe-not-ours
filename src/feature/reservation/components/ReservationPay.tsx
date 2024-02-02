@@ -2,13 +2,31 @@ import { useState } from 'react';
 import RequirementsPrePay from './RequirementsPrePay';
 import ReservationPayBtn from './ReservationPayBtn';
 
-const ReservationPay = () => {
+export interface ReservationPayProps {
+  roomId: number;
+  memberCouponId?: number;
+  reservationStartDate: Date;
+  reservationEndDate: Date;
+}
+
+const ReservationPay = ({
+  roomId,
+  memberCouponId,
+  reservationStartDate,
+  reservationEndDate,
+}: ReservationPayProps) => {
   const [allChecked, setAllChecked] = useState(false);
 
   return (
     <>
       <RequirementsPrePay setAllChecked={setAllChecked} />
-      <ReservationPayBtn allChecked={allChecked} />
+      <ReservationPayBtn
+        roomId={roomId}
+        memberCouponId={memberCouponId}
+        reservationStartDate={reservationStartDate}
+        reservationEndDate={reservationEndDate}
+        allChecked={allChecked}
+      />
     </>
   );
 };

@@ -1,38 +1,52 @@
-import { useRecoilValue } from 'recoil';
-import { paymentDataState } from '../recoil/paymentData';
 import RoomList from '../../../components/roomList/RoomList';
 import TransportationRadio from './TransportationRadio';
-import { CartData } from '../../../types';
 import * as common from '../../cart/styles/cartRoom';
+import { ReservationProps } from './ReservationSummary';
 
-const ReservationRooms = () => {
-  const paymentData: CartData = useRecoilValue(paymentDataState);
-
-  return JSON.stringify(paymentData) === '{}' ? null : (
+const ReservationRooms = ({
+  id,
+  guest,
+  reservationStartDate,
+  reservationEndDate,
+  stayDuration,
+  price: totalPrice,
+  reservationInfo,
+}: ReservationProps) => {
+  console.log(id);
+  console.log(guest);
+  console.log(reservationStartDate);
+  console.log(reservationEndDate);
+  console.log(stayDuration);
+  console.log(totalPrice);
+  console.log(reservationInfo);
+  return reservationInfo == null ? (
+    <>waiting...</>
+  ) : (
     <>
-      {paymentData.accommodations.map(accommodation => (
-        <common.AccommodationList
-          key={`accommodation-list-${accommodation.accommodationId}`}
+      <common.AccommodationList
+        key={`accommodation-list-${reservationInfo.placeId}`}
+      >
+        <common.Accommodation
+          href={'/accommodation/' + reservationInfo.placeId}
         >
-          <common.Accommodation
-            href={'/accommodation/' + accommodation.accommodationId}
-          >
-            <common.AccommodationName>
-              {accommodation.name}
-            </common.AccommodationName>
-            <common.AccommodationAddress>
-              {accommodation.address}
-            </common.AccommodationAddress>
-          </common.Accommodation>
+          <common.AccommodationName>
+            {reservationInfo.placeName}
+          </common.AccommodationName>
+          <common.AccommodationAddress>
+            {reservationInfo.address}
+          </common.AccommodationAddress>
+        </common.Accommodation>
 
-          {accommodation.roomOptions.map(roomOption => (
-            <div key={`room-option-${roomOption.cartProductId}`}>
-              <RoomList roomOption={roomOption} />
-              <TransportationRadio roomOption={roomOption} />
-            </div>
-          ))}
-        </common.AccommodationList>
-      ))}
+        <RoomList
+          id={id}
+          guest={guest}
+          reservationStartDate={reservationStartDate}
+          reservationEndDate={reservationEndDate}
+          stayDuration={stayDuration}
+          price={totalPrice}
+          reservationInfo={reservationInfo}
+        />
+      </common.AccommodationList>
     </>
   );
 };

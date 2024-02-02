@@ -29,6 +29,8 @@ const AccommodationRoomItem = ({
   const availableRoomCount = totalRoomCount - reservedRoomCount;
   const isAvailableDate = availableRoomCount > 0;
 
+  console.log(totalPrice);
+
   const { guest } = useRecoilValue(accommodationMemberState);
 
   const { startDate, endDate } = useRecoilValue(accommodationDateState);
@@ -122,6 +124,7 @@ const AccommodationRoomItem = ({
                   reservationStartDate={reservationStartDate}
                   reservationEndDate={reservationEndDate}
                   stayDuration={stayDuration}
+                  totalPrice={totalPrice}
                   available={true}
                   text="예약하기"
                 />
@@ -140,6 +143,7 @@ const AccommodationRoomItem = ({
                   available={false}
                   id={id}
                   guest={capacity}
+                  totalPrice={-1}
                   reservationStartDate={reservationStartDate}
                   reservationEndDate={reservationEndDate}
                   stayDuration={stayDuration}

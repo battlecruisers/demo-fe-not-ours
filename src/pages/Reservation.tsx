@@ -13,73 +13,122 @@ import * as style from '../feature/reservation/styles/reservation';
 import axios from 'axios';
 import { userState } from '../recoil/userData';
 import LoginModal from '../components/loginModal/LoginModal';
+import Coupon from './Coupon';
+import { PiGearSixBold } from 'react-icons/pi';
+import CouponPageLink from '../components/CouponPageLink';
+
+export interface RoomReservationProp {
+  placeId: number;
+  placeName: string;
+  address: string;
+  placeThumbnailImageUrl: string;
+  roomId: number;
+  roomName: string;
+  capacity: number;
+}
 
 const Reservation = () => {
   const setUser = useSetRecoilState(userState);
   const [isLoginModal, setIsLoginModal] = useState(false);
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
-  const postPaymentCartPayload: PostPaymentCartPayload = { ...location.state };
-  const { mutateAsync: postPaymentCart } = usePostPaymentCart();
-  const [paymentData, setPaymentData] = useRecoilState(paymentDataState);
+  // const postPaymentCartPayload: PostPaymentCartPayload = { ...location.state };
+  // const { mutateAsync: postPaymentCart } = usePostPaymentCart();
+  // const [paymentData, setPaymentData] = useRecoilState(paymentDataState);
+
+  //이 페이지로 넘어온 state관리
+  const {
+    id,
+    guest,
+    reservationEndDate,
+    reservationStartDate,
+    stayDuration,
+    totalPrice,
+  } = location.state;
+
+  console.log(id);
+  console.log(guest);
+  console.log(reservationEndDate);
+  console.log(reservationStartDate);
+  console.log(stayDuration);
+  console.log(totalPrice);
+
+  //couponId 관리
+  const [selectedCouponId, setSelectedCouponId] = useState<number>(-1);
+
+  const handleCouponSelect = (id: number) => {
+    // console.trace(id);
+    console.dir(id);
+    setSelectedCouponId(id);
+    // console.log(selectedCouponId);
+  };
+
+  //couponPage 조회 관리
+  const [isCouponShow, setIsCouponShow] = useState<boolean>(false);
+
   const setRadioData = useSetRecoilState(radioDataState);
   const navigation = useNavigate();
 
+  //예약에 필요한 정보 조회
+
+  let url = 'http://localhost:8080/rooms/' + id + '/reservation';
+  console.log(url);
+
+  const [reservationInfo, setReservationInfo] = useState<RoomReservationProp>();
+
   useEffect(() => {
-    const handlePaymentCart = async () => {
+    const fetchData = async () => {
       try {
-        await postPaymentCart({
-          postPaymentCartPayload,
-          paymentData,
-          setPaymentData,
-        });
+        const response = await axios.get(url);
+        const data = response.data.data;
+        setReservationInfo(data);
+        return data;
       } catch (error) {
-        if (axios.isAxiosError(error) && error.response) {
-          if (error.response.status === 401 || error.response.status === 405) {
-            setUser({
-              accessToken: '',
-              refreshToken: '',
-            });
-            window.alert('인증 오류가 발생했습니다. 로그인을 다시 해주세요.');
-            navigation('/login');
-          } else {
-            window.alert(
-              '사용 중 문제가 발생했습니다. 메인에서 다시 시도해주세요.',
-            );
-            navigation('/');
-          }
-        } else {
-          window.alert(
-            '사용 중 문제가 발생했습니다. 메인에서 다시 시도해주세요.',
-          );
-          navigation('/');
-        }
+        console.error('Error fetching data:', error);
       }
     };
 
-    handlePaymentCart();
-    setRadioData({});
-
-    const loadingTimer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-
-    loadingTimer;
-
-    return () => clearInterval(loadingTimer);
+    fetchData();
   }, []);
 
-  return isLoading || paymentData.cartId === -1 ? (
+  // console.log(id);
+  // console.log(guest);
+  // console.log(reservationEndDate);
+  // console.log(reservationStartDate);
+  // console.log(stayDuration);
+  // console.log(totalPrice);
+  // console.log(reservationInfo);
+
+  return isLoading ? (
     <LoadingWrapper>
       <Loading />
     </LoadingWrapper>
   ) : (
     <>
       <style.ReservationWrapper>
-        <ReservationSummary />
+        <ReservationSummary
+          id={id}
+          guest={guest}
+          reservationStartDate={reservationStartDate}
+          reservationEndDate={reservationEndDate}
+          stayDuration={stayDuration}
+          price={totalPrice}
+          reservationInfo={reservationInfo}
+        />
+        <Coupon
+          roomId={id}
+          isCouponShow={isCouponShow}
+          setIsCouponShow={setIsCouponShow}
+          onCouponSelect={handleCouponSelect}
+        />
         <GuestInformation />
-        <ReservationPay />
+        <ReservationPay
+          roomId={id}
+          memberCouponId={selectedCouponId}
+          reservationStartDate={reservationStartDate}
+          reservationEndDate={reservationEndDate}
+        />
       </style.ReservationWrapper>
 
       {isLoginModal && <LoginModal onClose={() => setIsLoginModal(false)} />}
