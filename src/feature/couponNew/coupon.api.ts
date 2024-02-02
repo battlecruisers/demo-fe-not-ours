@@ -7,7 +7,15 @@ import axios from 'axios';
 export const insertCoupon = async (couponId: number) => {
   try {
     // API 요청 보내기
-    await axios.post('http://localhost:8080/member-coupons', { couponId: couponId });
+    await axios.post(
+      'http://localhost:8080/member-coupons', 
+      { 
+        couponId: couponId 
+      },
+      {
+        withCredentials: true
+      }
+      );
     console.log('쿠폰 등록 성공');
   } catch (error) {
     // 오류 처리
