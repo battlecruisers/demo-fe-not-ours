@@ -15,6 +15,7 @@ import ReservationCheck from './pages/ReservationCheck';
 import ReservationList from './pages/ReservationList';
 import Search from './pages/Search';
 import SignUp from './pages/SignUp';
+import Review from './pages/Review';
 import CouponRegister from './pages/CouponRegister';
 
 function App() {
@@ -35,6 +36,10 @@ function App() {
         <Route
           path="/accommodation/:accommodationId/room/:roomOptionId"
           element={<AccommodationRoom />}
+        />
+        <Route
+          path="/accommodation/:accommodationId/review"
+          element={<Review />}
         />
         <Route path="/category/:id" element={<Category />} />
         <Route path="/reservation" element={<Reservation />} />

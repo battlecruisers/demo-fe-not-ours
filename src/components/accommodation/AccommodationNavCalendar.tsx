@@ -62,7 +62,7 @@ const AccommodationInfoCalender = () => {
     <>
       <style.AccommodationInfoCalenderBox
         onClick={() => {
-          setIsCalendarShow(prev => !prev);
+          setIsCalendarShow((prev) => !prev);
         }}
       >
         <IoCalendarClearOutline />

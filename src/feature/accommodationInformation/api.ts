@@ -9,14 +9,17 @@ export const getAccommodationInfoData = async ({
   member,
 }: AccommodationInfoParams) => {
   try {
-    const { data } = await instance.get(`/accommodations/${id}`, {
-      params: {
-        startDate: reservationStartDate,
-        endDate: reservationEndDate,
-        guest: member,
-        accommodationId: id,
+    const { data } = await instance.get(
+      `http://localhost:8080/accommodations/${id}`,
+      {
+        params: {
+          startDate: reservationStartDate,
+          endDate: reservationEndDate,
+          guest: member,
+          accommodationId: id,
+        },
       },
-    });
+    );
     return data;
   } catch (error) {
     console.error('error get accommodation info:', error);

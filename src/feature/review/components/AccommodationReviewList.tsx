@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import * as style from '../../accommodationInformation/styles/accommodationReviewList';
 import instance from '../../../api/instance';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import AccommodationReviewItem from './AccommodationReviewItem';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -16,12 +16,14 @@ const AccommodationReviewList = () => {
     swipeToSlide: true,
   };
   const [loading, setLoading] = useState(true);
-  const [reviewInfo, setReviewInfo] = useState<ReviewInfoProps>();
-  const { accommodationId, roomOptionId = '' } = useParams();
+  const [reviewInfo, setReviewInfo] = useState<ReviewSample>();
+  const { accommodationId, roomOptionId } = useParams();
   const getReviews = async () => {
-    const data: ReviewInfoProps = (
+    const data: ReviewSample = (
       await instance.get(
-        `http://localhost:8080/places/${accommodationId}/review?roomId=${roomOptionId}`,
+        `http://localhost:8080/accommodations/${accommodationId}/review-samples?${
+          roomOptionId ? `roomId=${roomOptionId}` : ''
+        }`,
       )
     ).data.data;
     setReviewInfo(data);
@@ -74,7 +76,14 @@ const AccommodationReviewList = () => {
                   ))}
             </Slider>
           </style.ReviewContainer>
-          <style.AllReviews>{`${reviewInfo?.totalCount}개 후기 전체 보기`}</style.AllReviews>
+          <Link
+            style={{ textDecoration: 'none' }}
+            to={`/accommodation/${accommodationId}/review?${
+              roomOptionId ? `roomId=${roomOptionId}` : ''
+            }`}
+          >
+            <style.AllReviews>{`${reviewInfo?.totalCount}개 후기 전체 보기`}</style.AllReviews>
+          </Link>
         </style.ReviewArea>
       )}
     </style.Wrapper>

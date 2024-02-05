@@ -33,19 +33,15 @@ export const ReviewStatistics = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const ReviewContainer = styled.div`
+export const ReviewWrapper = styled.div`
+  padding: 0.3rem;
+  border-radius: 1rem;
   font-family: sans-serif;
 `;
 
-export const SlideItemWrapper = styled.div`
-  padding: 0.3rem;
-  border-radius: 1rem;
-`;
-
 export const ReviewBox = styled.div`
-  padding: 1rem;
-  border-radius: 0.7rem;
-  border: 1px solid #e5e5e5;
+  padding: 1rem 0rem;
+  border-bottom: 1px solid #f2f2f2;
 `;
 
 export const TotalRate = styled.div`
@@ -54,15 +50,13 @@ export const TotalRate = styled.div`
 
 export const TextInfo = styled.div`
   display: flex;
-  padding: 0.7rem 0rem;
+  padding: 1rem 0rem;
   justify-content: space-between;
   font-size: 13px;
   color: gray;
 `;
 
 export const ContentWrapper = styled.div`
-  display: flex;
-  gap: 0.7em;
   padding-top: 1rem;
   font-size: 14px;
 `;
@@ -72,12 +66,16 @@ export const ReviewContent = styled.div`
   overflow: hidden;
   line-height: 1.4;
   max-height: 5rem;
-  min-height: 5rem;
+`;
+
+export const SlideItemWrapper = styled.div`
+  margin-top: 1rem;
+  border-radius: 1rem;
 `;
 
 export const RoomImage = styled.img`
-  width: 5rem;
-  height: 5rem;
+  width: 12.5rem;
+  height: 8.3rem;
   border-radius: 0.5rem;
   object-fit: cover;
 `;

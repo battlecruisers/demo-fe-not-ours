@@ -15,7 +15,7 @@ export const MemberLayout = styled.div<{ $isMemberShow: boolean }>`
   z-index: 2;
   background-color: ${({ theme }) => theme.color.brightGray};
 
-  ${props =>
+  ${(props) =>
     props.$isMemberShow &&
     css`
       top: 50px;
@@ -37,7 +37,7 @@ export const ThemeLayout = styled.div<{ $isThemeShow: boolean }>`
   z-index: 2;
   background-color: ${({ theme }) => theme.color.brightGray};
 
-  ${props =>
+  ${(props) =>
     props.$isThemeShow &&
     css`
       top: 50px;
@@ -59,7 +59,7 @@ export const SortLayout = styled.div<{ $isSortShow: boolean }>`
   z-index: 2;
   background-color: ${({ theme }) => theme.color.brightGray};
 
-  ${props =>
+  ${(props) =>
     props.$isSortShow &&
     css`
       top: 50px;
@@ -81,7 +81,7 @@ export const PriceLayout = styled.div<{ $isPriceShow: boolean }>`
   z-index: 2;
   background-color: ${({ theme }) => theme.color.brightGray};
 
-  ${props =>
+  ${(props) =>
     props.$isPriceShow &&
     css`
       top: 50px;

@@ -8,8 +8,13 @@ interface ReviewProps {
   roomImageUrls: string[];
 }
 
-interface ReviewInfoProps {
-  id: number;
+interface ReviewSample {
+  totalCount: number;
+  totalRateAvg: number;
+  reviews: ReviewProps[];
+}
+
+interface ReviewStatisticsProps {
   totalCount: number;
   totalRateAvg: number;
   kindnessRateAvg: number;
@@ -17,4 +22,30 @@ interface ReviewInfoProps {
   convenienceRateAvg: number;
   locationRateAvg: number;
   reviews: ReviewProps[];
+}
+
+interface ReviewStatisticsParam {
+  totalCount: number;
+  totalRateAvg: number;
+  kindnessRateAvg: number;
+  cleanlinessRateAvg: number;
+  convenienceRateAvg: number;
+  locationRateAvg: number;
+}
+
+interface ReviewSearchCondition {
+  accommodationId: string | undefined;
+  roomId: string | null;
+  page: number;
+  hasPhoto: boolean;
+  sort: string;
+}
+
+interface SearchConditionSelectorsParam {
+  onChange: React.Dispatch<React.SetStateAction<ReviewSearchCondition>>;
+}
+
+interface RoomName {
+  id: number;
+  name: string;
 }

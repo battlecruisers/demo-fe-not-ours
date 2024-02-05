@@ -13,7 +13,7 @@ const AccommodationInfoSort = () => {
     <>
       <style.AccommodationInfoMemberBox
         onClick={() => {
-          setIsSortShow(prev => !prev);
+          setIsSortShow((prev) => !prev);
         }}
       >
         <IoPeople />

@@ -26,8 +26,8 @@ const AccommodationMember = ({
 
   const handleSetMember = (type: string) => {
     type === 'plus'
-      ? setMemberCount(prev => prev + 1)
-      : setMemberCount(prev => prev - 1);
+      ? setMemberCount((prev) => prev + 1)
+      : setMemberCount((prev) => prev - 1);
   };
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const AccommodationMember = ({
   }, [memberCount]);
 
   const handleMemberCount = () => {
-    setIsMemberShow(prev => !prev);
+    setIsMemberShow((prev) => !prev);
     setAccommodationMemberState({ guest: memberCount });
   };
   return (
@@ -60,7 +60,7 @@ const AccommodationMember = ({
               정확한 숙소검색 결과를 확인하려면 인원수를 선택해주세요.
             </span>
             <style.MemberContentInfoCloseIcon
-              onClick={() => setIsMemberShow(prev => !prev)}
+              onClick={() => setIsMemberShow((prev) => !prev)}
             />
           </style.MemberContentInfoBox>
           <style.MemberContentPeopleContainer>

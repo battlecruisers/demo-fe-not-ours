@@ -40,7 +40,7 @@ const AccommodationPrice = ({
           <style.MemberContentInfoBox>
             <span>최대 가격과 최소 가격을 설정해주세요.</span>
             <style.MemberContentInfoCloseIcon
-              onClick={() => setIsPriceShow(prev => !prev)}
+              onClick={() => setIsPriceShow((prev) => !prev)}
             />
           </style.MemberContentInfoBox>
           <style.MemberContentPeopleContainer>

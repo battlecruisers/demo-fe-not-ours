@@ -13,7 +13,7 @@ const AccommodationInfoTheme = () => {
     <>
       <style.AccommodationInfoMemberBox
         onClick={() => {
-          setIsThemeShow(prev => !prev);
+          setIsThemeShow((prev) => !prev);
         }}
       >
         <IoPeople />

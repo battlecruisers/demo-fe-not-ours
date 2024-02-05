@@ -11,13 +11,14 @@ import { RoomInfoProps } from '../RoomInformation.types';
 import { useRecoilValue } from 'recoil';
 import { accommodationMemberState } from '../../../recoil/accommodationMember';
 import AccommodationReviewList from '../../review/components/AccommodationReviewList';
+import { RoomItemProps } from '../../accommodationInformation/accommodationInformation.types';
 
 const AccommodationRoomInfo = ({ data }: RoomInfoProps) => {
   const [toast, setToast] = useRecoilState(toastState);
 
   const { guest } = useRecoilValue(accommodationMemberState);
 
-  const room = data.data;
+  const room: RoomItemProps = data.data;
   const availableRoomCount = room.totalRoomCount - room.reservedRoomCount;
   const isRoomAvailable = availableRoomCount > 0;
   const isAvailableGuest = guest <= room.capacity;
@@ -52,12 +53,12 @@ const AccommodationRoomInfo = ({ data }: RoomInfoProps) => {
         <style.RoomCheckInOut>
           <style.RoomCheckIn>
             <span>체크인: </span>
-            {room.checkInTime.slice(0, 5)}
+            {room.startTime.slice(0, 5)}
           </style.RoomCheckIn>
           <span>~</span>
           <style.RoomCheckOut>
             <span>체크아웃: </span>
-            {room.checkOutTime.slice(0, 5)}
+            {room.endTime.slice(0, 5)}
           </style.RoomCheckOut>
         </style.RoomCheckInOut>
         {isRoomAvailable ? (

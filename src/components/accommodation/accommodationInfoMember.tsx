@@ -13,7 +13,7 @@ export const AccommodationInfoMember = () => {
     <>
       <style.AccommodationInfoMemberBox
         onClick={() => {
-          setIsMemberShow(prev => !prev);
+          setIsMemberShow((prev) => !prev);
         }}
       >
         <IoPeople />

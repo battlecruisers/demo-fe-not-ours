@@ -33,7 +33,7 @@ const AccommodationSort = ({ isSortShow, setIsSortShow, sort }: SortProps) => {
           <style.MemberContentInfoBox>
             <span>정렬 조건을 선택해주세요.</span>
             <style.MemberContentInfoCloseIcon
-              onClick={() => setIsSortShow(prev => !prev)}
+              onClick={() => setIsSortShow((prev) => !prev)}
             />
           </style.MemberContentInfoBox>
           <style.MemberContentPeopleContainer>

@@ -18,7 +18,7 @@ export const RoomOptionImg = styled.img<{ $isPaymentId?: boolean }>`
 
   object-fit: cover;
 
-  opacity: ${props => (props.$isPaymentId ? 0.5 : 1)};
+  opacity: ${(props) => (props.$isPaymentId ? 0.5 : 1)};
 `;
 
 export const RoomOptionsText = styled.div`

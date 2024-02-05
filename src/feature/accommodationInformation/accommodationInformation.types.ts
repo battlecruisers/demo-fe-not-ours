@@ -1,3 +1,5 @@
+export type RoomType = 'STAY' | 'RENT';
+
 export interface AccommodationInfoParams {
   id: string | undefined;
   reservationStartDate: string;
@@ -5,18 +7,19 @@ export interface AccommodationInfoParams {
   member: number;
 }
 
-export interface RoomListProps {
+export interface RoomItemProps {
   id: number;
   accommodationId: string | undefined;
   name: string;
   roomOptionImage: { mainImageUrls: string[] };
-  checkInTime: string;
-  checkOutTime: string;
+  startTime: string;
+  endTime: string;
   totalPrice: number;
   stayDuration: number;
   totalRoomCount: number;
   reservedRoomCount: number;
   capacity: number;
+  roomType: RoomType;
 }
 
 export interface PostCart {

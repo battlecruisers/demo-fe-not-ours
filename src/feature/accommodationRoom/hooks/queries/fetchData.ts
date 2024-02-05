@@ -1,16 +1,23 @@
 import { useQuery } from '@tanstack/react-query';
 import { getRoomInfoData } from '../../api';
-import { AccommodationInfoParams } from '../../../accommodationInformation/accommodationInformation.types';
+import { RoomInfoParams } from '../../RoomInformation.types';
 
 export const useRoomInfoQuery = ({
   id,
   reservationStartDate,
   reservationEndDate,
   member,
-}: AccommodationInfoParams) => {
+  roomType,
+}: RoomInfoParams) => {
   return useQuery({
     queryKey: ['getRoomInfoData', id],
     queryFn: () =>
-      getRoomInfoData({ id, reservationStartDate, reservationEndDate, member }),
+      getRoomInfoData({
+        id,
+        reservationStartDate,
+        reservationEndDate,
+        member,
+        roomType,
+      }),
   });
 };

@@ -19,7 +19,7 @@ const CouponPageLink = (
     <>
       <style.AccommodationInfoMemberBox
         onClick={() => {
-          setIsCouponShow(prev => !prev);
+          setIsCouponShow((prev) => !prev);
         }}
       >
         <style.AccommodationInfoMemberParagraph>

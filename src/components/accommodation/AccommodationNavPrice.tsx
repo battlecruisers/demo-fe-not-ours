@@ -12,7 +12,7 @@ const AccommodationInfoPrice = () => {
     <>
       <style.AccommodationInfoMemberBox
         onClick={() => {
-          setIsPriceShow(prev => !prev);
+          setIsPriceShow((prev) => !prev);
         }}
       >
         <IoPeople />

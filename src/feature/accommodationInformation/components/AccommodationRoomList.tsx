@@ -2,7 +2,7 @@ import AccommodationRoomItem from './AccommodationRoomItem';
 import { useParams, useNavigate } from 'react-router-dom';
 import * as style from '../styles/accommodationRoomList';
 import { useAccommodationInfoQuery } from '../hooks/queries/fetchData';
-import { RoomListProps } from '../accommodationInformation.types';
+import { RoomItemProps } from '../accommodationInformation.types';
 import { accommodationDateState } from '../../../recoil/accommodationDate';
 import { useRecoilValue } from 'recoil';
 import { handleDateParam } from '../../accommodation/accommodation.utils';
@@ -48,20 +48,21 @@ const AccommodationRoomList = () => {
   ) : (
     <style.Wrapper>
       <style.ChooseRoomText>객실 선택</style.ChooseRoomText>
-      {data.data.roomOptions.map((room: RoomListProps) => (
+      {data.data.roomOptions.map((room: RoomItemProps) => (
         <AccommodationRoomItem
           key={room.id}
           id={room.id}
           accommodationId={accommodationId}
           name={room.name}
           roomOptionImage={room.roomOptionImage}
-          checkInTime={room.checkInTime}
-          checkOutTime={room.checkOutTime}
+          startTime={room.startTime}
+          endTime={room.endTime}
           totalPrice={room.totalPrice}
           stayDuration={room.stayDuration}
           totalRoomCount={room.totalRoomCount}
           reservedRoomCount={room.reservedRoomCount}
           capacity={room.capacity}
+          roomType={room.roomType}
         />
       ))}
     </style.Wrapper>

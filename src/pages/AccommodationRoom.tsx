@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import AccommodationRoomInfo from '../feature/accommodationRoom/components/AccommodationRoomInfo';
 import BottomBar from '../feature/accommodationRoom/components/BottomBar';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { useRoomInfoQuery } from '../feature/accommodationRoom/hooks/queries/fetchData';
 import { useRecoilValue } from 'recoil';
 import { accommodationMemberState } from '../recoil/accommodationMember';
@@ -13,6 +13,7 @@ import BottomBarSkeleton from '../feature/accommodationRoom/components/BottomBar
 
 const AccommodationRoom = () => {
   const { roomOptionId } = useParams();
+  const [searchParams] = useSearchParams();
   const navigation = useNavigate();
 
   const { guest } = useRecoilValue(accommodationMemberState);
@@ -27,11 +28,13 @@ const AccommodationRoom = () => {
     reservationEndDate = dateArray![1];
   }
 
+  const roomType = searchParams.get('roomType');
   const { status, data } = useRoomInfoQuery({
     id: roomOptionId,
     reservationStartDate,
     reservationEndDate,
     member: guest,
+    roomType: roomType,
   });
 
   useEffect(() => {
@@ -43,6 +46,8 @@ const AccommodationRoom = () => {
       };
     }
   }, [navigation, status]);
+
+  console.log(data);
 
   return status === 'pending' ? (
     <Wrapper>
